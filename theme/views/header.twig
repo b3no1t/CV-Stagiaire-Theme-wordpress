@@ -1,0 +1,62 @@
+{#
+   Navigation principale
+   Composant réutilisable pour l'en-tête
+#}
+<nav class="w-full bg-amber-100 navbar" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+
+        {# Logo/Nom du site #}
+        <div class="navbar-brand">
+            <a href="{{ site.url }}" class="brand-link">
+                {% if theme_options.logo %}
+                    <img src="{{ theme_options.logo.url }}" alt="{{ site.name }}" class="logo">
+                {% else %}
+                    <span class="brand-text">{{ site.name }}</span>
+                {% endif %}
+            </a>
+        </div>
+
+        {# Bouton menu mobile #}
+        <button class="navbar-toggle"
+                type="button"
+                data-toggle="mobile-menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+                aria-label="Toggle navigation">
+            <span class="sr-only">Menu</span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        {# Menu principal #}
+        {# {% if primary_menu %} #}
+            <div class="navbar-menu" id="mobile-menu">
+                <ul class="navbar-nav">
+                    {% for item in primary_menu.items %}
+                        <li class="nav-item {{ item.classes | join(' ') }}">
+                            <a href="{{ item.url }}"
+                               class="nav-link"
+                               {% if item.target %}target="{{ item.target }}"{% endif %}>
+                                {{ item.title }}
+                            </a>
+
+                            {# Sous-menu si présent #}
+                            {% if item.children %}
+                                <ul class="dropdown-menu">
+                                    {% for child in item.children %}
+                                        <li class="dropdown-item">
+                                            <a href="{{ child.url }}" class="dropdown-link">
+                                                {{ child.title }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {# {% endif %} #}
+    </div>
+</nav>

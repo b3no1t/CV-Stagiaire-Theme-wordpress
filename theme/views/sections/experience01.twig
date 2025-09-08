@@ -1,0 +1,119 @@
+{#
+   Section Expérience professionnelle
+   Timeline des expériences avec détails
+#}
+<section class="experience-section" id="experience">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Expérience Professionnelle</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        {% if theme_options.experiences %}
+            <div class="timeline">
+                {% for experience in theme_options.experiences %}
+                    <div class="timeline-item {{ loop.index is odd ? 'timeline-left' : 'timeline-right' }}">
+
+                        {# Point de la timeline #}
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        {# Contenu de l'expérience #}
+                        <div class="timeline-content">
+                            <div class="experience-card">
+
+                                {# En-tête de la carte #}
+                                <div class="experience-header">
+                                    <h3 class="experience-title">{{ experience.job_title }}</h3>
+                                    <div class="experience-company">
+                                        {% if experience.company_logo %}
+                                            <img src="{{ experience.company_logo.url }}"
+                                                 alt="{{ experience.company_name }}"
+                                                 class="company-logo">
+                                        {% endif %}
+                                        <span class="company-name">{{ experience.company_name }}</span>
+                                    </div>
+                                </div>
+
+                                {# Période et lieu #}
+                                <div class="experience-meta">
+                                    <div class="experience-period">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>
+                                            {{ experience.start_date }}
+                                            {% if experience.end_date %}
+                                                - {{ experience.end_date }}
+                                            {% else %}
+                                                - Aujourd'hui
+                                            {% endif %}
+                                        </span>
+                                    </div>
+
+                                    {% if experience.location %}
+                                        <div class="experience-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>{{ experience.location }}</span>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                {# Description du poste #}
+                                {% if experience.description %}
+                                    <div class="experience-description">
+                                        {{ experience.description | raw }}
+                                    </div>
+                                {% endif %}
+
+                                {# Compétences utilisées #}
+                                {% if experience.technologies %}
+                                    <div class="experience-technologies">
+                                        <h4 class="tech-title">Technologies utilisées :</h4>
+                                        <div class="tech-tags">
+                                            {% for tech in experience.technologies %}
+                                                <span class="tech-tag">{{ tech.name }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {# Réalisations clés #}
+                                {% if experience.achievements %}
+                                    <div class="experience-achievements">
+                                        <h4 class="achievements-title">Réalisations clés :</h4>
+                                        <ul class="achievements-list">
+                                            {% for achievement in experience.achievements %}
+                                                <li class="achievement-item">
+                                                    {{ achievement.text }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {# Section Formation #}
+        {% if theme_options.education %}
+            <div class="education-section">
+                <h3 class="education-title">Formation</h3>
+                <div class="education-grid">
+                    {% for edu in theme_options.education %}
+                        <div class="education-card">
+                            <h4 class="education-degree">{{ edu.degree }}</h4>
+                            <p class="education-school">{{ edu.school }}</p>
+                            <p class="education-year">{{ edu.year }}</p>
+                            {% if edu.description %}
+                                <p class="education-description">{{ edu.description }}</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>

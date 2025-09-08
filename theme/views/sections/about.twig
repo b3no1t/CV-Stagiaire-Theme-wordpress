@@ -1,0 +1,106 @@
+{#
+   Section À propos
+   Présentation personnelle du développeur
+#}
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="about-content">
+            <div class="row">
+                
+                {# Colonne de gauche - Texte de présentation #}
+                <div class="col-lg-8">
+                    {% if theme_options.about_text %}
+                        <div class="about-text">
+                            {{ theme_options.about_text | raw }}
+                        </div>
+                    {% endif %}
+
+                    {# Liste des points forts #}
+                    {% if theme_options.strengths %}
+                        <div class="strengths-list">
+                            <h3 class="strengths-title">Mes atouts</h3>
+                            <ul class="strengths-items">
+                                {% for strength in theme_options.strengths %}
+                                    <li class="strength-item">
+                                        {% if strength.icon %}
+                                            <i class="{{ strength.icon }}"></i>
+                                        {% endif %}
+                                        <span>{{ strength.text }}</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+
+                {# Colonne de droite - Informations personnelles #}
+                <div class="col-lg-4">
+                    <div class="personal-info">
+                        <h3 class="info-title">Informations</h3>
+                        
+                        <div class="info-list">
+                            {% if theme_options.age %}
+                                <div class="info-item">
+                                    <span class="info-label">Âge:</span>
+                                    <span class="info-value">{{ theme_options.age }} ans</span>
+                                </div>
+                            {% endif %}
+
+                            {% if theme_options.location %}
+                                <div class="info-item">
+                                    <span class="info-label">Localisation:</span>
+                                    <span class="info-value">{{ theme_options.location }}</span>
+                                </div>
+                            {% endif %}
+
+                            {% if theme_options.email %}
+                                <div class="info-item">
+                                    <span class="info-label">Email:</span>
+                                    <span class="info-value">
+                                        <a href="mailto:{{ theme_options.email }}">
+                                            {{ theme_options.email }}
+                                        </a>
+                                    </span>
+                                </div>
+                            {% endif %}
+
+                            {% if theme_options.phone %}
+                                <div class="info-item">
+                                    <span class="info-label">Téléphone:</span>
+                                    <span class="info-value">
+                                        <a href="tel:{{ theme_options.phone }}">
+                                            {{ theme_options.phone }}
+                                        </a>
+                                    </span>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        {# Réseaux sociaux #}
+                        {% if theme_options.social_networks %}
+                            <div class="social-links">
+                                <h4 class="social-title">Me suivre</h4>
+                                <div class="social-list">
+                                    {% for social in theme_options.social_networks %}
+                                        <a href="{{ social.url }}" 
+                                           class="social-link social-{{ social.platform | lower }}"
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           title="{{ social.platform }}">
+                                            <i class="{{ social.icon }}"></i>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
