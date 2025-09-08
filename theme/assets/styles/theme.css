@@ -1,16 +1,6 @@
+/* Imports CSS */
+
 /* Custom theme styles */
 body{
-  @apply bg-amber-900;
-  font-family: 'sfpro';
-}
-/**
- * Stratégie font-display pour un rendu optimal
- * - swap : affiche immédiatement la police de fallback puis bascule
- * - fallback : utilise la police système si le chargement dépasse 100ms
- * - optional : utilise uniquement si la police est déjà en cache
- */
-@font-face {
-    font-family: 'sfpro';
-    src: url('../fonts/sfpro/SFProDisplay-Regular.woff2') format('woff2');
-    font-display: swap; /* Recommandé pour la plupart des cas */
+  @apply font-normal;
 }

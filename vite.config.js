@@ -5,7 +5,6 @@ const dest = './theme/assets/dist'
 const entries = [
   './theme/assets/main.js',
   './theme/assets/styles/main.css',
-  './theme/assets/styles/editor-style.css',
 ]
 
 export default defineConfig(({ mode }) => {
@@ -20,7 +19,7 @@ export default defineConfig(({ mode }) => {
       cors: true,
       strictPort: true,
       port: 3000,
-      https: true,
+      https: false,
       hmr: {
         host: 'localhost',
       }

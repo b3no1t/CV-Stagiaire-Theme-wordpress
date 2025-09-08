@@ -4,7 +4,7 @@
 @plugin '@tailwindcss/typography';
 
 body {
-  @apply font-sans;
+  @apply font-normal;
 }
 
 .wp-block{
