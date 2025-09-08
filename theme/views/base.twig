@@ -23,7 +23,13 @@
         [x-cloak] { display: none; }
     </style>
     {{function('wp_head')}}
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    {# TODO add cdn to debug missing local css #}
+     {# <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> #}
+
+    {# TODO add SF Pro Apple font by cdn install it for PROD #}
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css">
+
 </head>
 
 <body class="{{body_class}}" data-template="base.twig">

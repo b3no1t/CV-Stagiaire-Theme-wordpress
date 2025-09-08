@@ -1,0 +1,98 @@
+/* theme/assets/styles/theme.css */
+
+/**
+ * Déclarations @font-face pour les polices personnalisées
+ * Chaque déclaration charge une variante spécifique (poids, style)
+ */
+
+/* sfpro-diplay - Police principale pour les titres */
+@font-face {
+  font-family: 'sfpro-display';
+  src: url('../../fonts/sfpro/SFProDisplay-Black.woff2') format('woff2'),
+       url('../../fonts/sfpro/SFProDisplay-Black.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;                  /* Optimisation du rendu initial */
+}
+
+@font-face {
+  font-family: 'sfpro-normal';
+  src: url('../../fonts/sfpro/SFProDisplay-Regular.woff2') format('woff2'),
+       url('../../fonts/sfpro/SFProDisplay-Regular.woff') format('woff');
+  font-weight: 400;                    /* Correspond à font-normal dans Tailwind */
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/**
+ * Variables CSS personnalisées pour une gestion centralisée
+ * Facilite la maintenance et permet des modifications globales rapides
+ */
+:root {
+  --font-heading: 'sfpro-display', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'sfpro-normal', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  /* Échelle typographique responsive */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+}
+
+/**
+ * Application des polices personnalisées aux éléments HTML de base
+ * Définit la typographie par défaut de votre thème
+ */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;                   /* Améliore la lisibilité */
+  font-feature-settings: "kern" 1;    /* Active le kerning automatique */
+  text-rendering: optimizeLegibility;  /* Optimise le rendu du texte */
+  -webkit-font-smoothing: antialiased; /* Lissage sur WebKit */
+  -moz-osx-font-smoothing: grayscale; /* Lissage sur Firefox/macOS */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;           /* Légère compression pour les titres */
+}
+
+/**
+ * Styles spécifiques aux éléments WordPress et Timber
+ * Intégration harmonieuse avec l'écosystème WordPress
+ */
+.wp-block-post-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.entry-content {
+  font-family: var(--font-body);
+}
+
+/**
+ * Classes utilitaires personnalisées complémentaires à Tailwind
+ * Étendent les fonctionnalités typographiques standard
+ */
+.text-balance {
+  text-wrap: balance;                 /* Équilibre les lignes de texte (moderne) */
+}
+
+.font-feature-small-caps {
+  font-feature-settings: "smcp" 1;   /* Active les petites capitales */
+}
+
+.font-feature-tabular {
+  font-feature-settings: "tnum" 1;   /* Chiffres tabulaires (même largeur) */
+}
