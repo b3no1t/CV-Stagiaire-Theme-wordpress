@@ -1,6 +1,32 @@
 /*
 Theme Name: CV Theme
-Author: Chris Earls
+Author: Benoit Lepage
 Description: A modern WordPress theme using Timber, ACF, Tailwind CSS and Alpine JS
 Version: 2.2.0
 */
+
+
+
+/**
+ * Déclarations @font-face pour les polices personnalisées
+ * Chaque déclaration charge une variante spécifique (poids, style)
+ */
+
+/* dejavu-diplay - Police principale pour les titres */
+@font-face {
+  font-family: 'dejavu-display';
+  src: url('./assets/fonts/dejavu/DejaVuSansCondensed-bold-webfont.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;                  /* Optimisation du rendu initial */
+}
+
+@font-face {
+  font-family: 'dejavu-normal';
+  src:  url('./assets/fonts/dejavu/DejaVuSans-webfont.woff') format('woff');
+  font-weight: 400;                    /* Correspond à font-normal dans Tailwind */
+  font-style: normal;
+  font-display: swap;
+}
+
+

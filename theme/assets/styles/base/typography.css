@@ -1,38 +1,12 @@
 /* theme/assets/styles/theme.css */
 
 /**
- * Déclarations @font-face pour les polices personnalisées
- * Chaque déclaration charge une variante spécifique (poids, style)
- */
-
-/* sfpro-diplay - Police principale pour les titres */
-@font-face {
-  font-family: 'sfpro-display';
-  src: url('../../fonts/sfpro/SFProDisplay-Black.woff2') format('woff2'),
-       url('../../fonts/sfpro/SFProDisplay-Black.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;                  /* Optimisation du rendu initial */
-}
-
-@font-face {
-  font-family: 'sfpro-normal';
-  src: url('../../fonts/sfpro/SFProDisplay-Regular.woff2') format('woff2'),
-       url('../../fonts/sfpro/SFProDisplay-Regular.woff') format('woff');
-  font-weight: 400;                    /* Correspond à font-normal dans Tailwind */
-  font-style: normal;
-  font-display: swap;
-}
-
-
-
-/**
  * Variables CSS personnalisées pour une gestion centralisée
  * Facilite la maintenance et permet des modifications globales rapides
  */
 :root {
-  --font-heading: 'sfpro-display', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'sfpro-normal', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'dejavu-display', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'dejavu-normal', ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
 
   /* Échelle typographique responsive */
@@ -62,7 +36,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 1.2;
   letter-spacing: -0.025em;           /* Légère compression pour les titres */
 }

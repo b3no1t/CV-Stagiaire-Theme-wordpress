@@ -1,6 +1,475 @@
 /* Imports CSS */
+/* theme/assets/styles/theme.css - Configuration Tailwind CSS 4 */
 
-/* Custom theme styles */
-body{
-  @apply font-normal;
+/**
+ * CONFIGURATION TAILWIND CSS 4.0 - CSS-FIRST APPROACH
+ * Cette configuration remplace complètement le fichier tailwind.config.js
+ * Toutes les personnalisations se font désormais directement en CSS
+ */
+
+/**
+ * 🎨 DIRECTIVE @THEME - CŒUR DE LA CONFIGURATION TAILWIND 4
+ * Remplace theme.extend du fichier JS traditionnel
+ * Permet de définir couleurs, polices, espacements, etc.
+ */
+@theme {
+  /**
+   * 🌈 PALETTE DE COULEURS PERSONNALISÉES
+   * Définition des couleurs du système de design Timberland
+   * Utilisation de la syntaxe moderne CSS avec variables intégrées
+   */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;    /* Couleur principale */
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+
+  /* Couleurs sémantiques pour WordPress */
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+
+  /**
+   * 🔤 SYSTÈME TYPOGRAPHIQUE AVANCÉ
+   * Configuration des polices avec fallbacks système optimisés
+   * Support des polices variables et font-feature-settings
+   */
+  --font-family-heading: "dejavu-display", ui-sans-serif, system-ui, sans-serif;
+  --font-family-body: "dejavu-normal", ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
+
+  /* Échelle typographique responsive avec clamp() */
+  --font-size-xs: clamp(0.75rem, 0.95vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 1.1vw, 1rem);
+  --font-size-base: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1.4vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.6vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 2vw, 1.875rem);
+  --font-size-3xl: clamp(1.875rem, 2.5vw, 2.25rem);
+  --font-size-4xl: clamp(2.25rem, 3vw, 3rem);
+  --font-size-5xl: clamp(3rem, 4vw, 4rem);
+  --font-size-6xl: clamp(4rem, 5vw, 6rem);
+
+  /**
+   * 📏 SYSTÈME D'ESPACEMENT PERSONNALISÉ
+   * Échelle d'espacement adaptée aux besoins WordPress
+   * Basé sur une progression harmonieuse pour layouts cohérents
+   */
+  --spacing-18: 4.5rem;    /* 72px - Entre lg et xl */
+  --spacing-22: 5.5rem;    /* 88px - Pour sections importantes */
+  --spacing-26: 6.5rem;    /* 104px - Espacement de section large */
+  --spacing-30: 7.5rem;    /* 120px - Headers/footers */
+  --spacing-36: 9rem;      /* 144px - Sections héros */
+
+  /**
+   * 📐 BREAKPOINTS RESPONSIVES ÉTENDUS
+   * Points de rupture optimisés pour WordPress et mobiles modernes
+   */
+  --breakpoint-xs: 475px;      /* Très petits mobiles */
+  --breakpoint-sm: 640px;      /* Mobiles portrait */
+  --breakpoint-md: 768px;      /* Tablettes portrait */
+  --breakpoint-lg: 1024px;     /* Tablettes paysage */
+  --breakpoint-xl: 1280px;     /* Desktops */
+  --breakpoint-2xl: 1536px;    /* Grands écrans */
+  --breakpoint-3xl: 1920px;    /* Ultra-wide */
+
+  /**
+   * 🎭 ANIMATIONS ET TRANSITIONS
+   * Système d'animation cohérent pour interactions fluides
+   */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  --easing-in: cubic-bezier(0.4, 0, 1, 1);
+  --easing-out: cubic-bezier(0, 0, 0.2, 1);
+  --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Animations personnalisées */
+  --animation-fade-in: fadeIn var(--duration-normal) var(--easing-out);
+  --animation-slide-up: slideUp var(--duration-normal) var(--easing-out);
+  --animation-bounce-subtle: bounceSubtle var(--duration-slow) var(--easing-out);
+
+  /**
+   * 🌫️ SYSTÈME D'OMBRES MODERNE
+   * Ombres multicouches pour profondeur réaliste
+   * Inspiré des Material Design guidelines
+   */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+  /* Ombres colorées pour effets spéciaux */
+  --shadow-primary: 0 10px 15px -3px rgb(59 130 246 / 0.1), 0 4px 6px -4px rgb(59 130 246 / 0.1);
+  --shadow-success: 0 10px 15px -3px rgb(34 197 94 / 0.1), 0 4px 6px -4px rgb(34 197 94 / 0.1);
+
+  /**
+   * 🔄 BORDURES ET RADIUS PERSONNALISÉS
+   * Système de bordures harmonieux pour composants WordPress
+   */
+  --border-radius-xs: 0.125rem;    /* 2px */
+  --border-radius-sm: 0.25rem;     /* 4px */
+  --border-radius-md: 0.375rem;    /* 6px */
+  --border-radius-lg: 0.5rem;      /* 8px */
+  --border-radius-xl: 0.75rem;     /* 12px */
+  --border-radius-2xl: 1rem;       /* 16px */
+  --border-radius-3xl: 1.5rem;     /* 24px */
+  --border-radius-full: 9999px;    /* Cercle parfait */
+}
+
+/**
+ * 📱 CONFIGURATION DU CONTENU (REPLACEMENT DE content)
+ * Définit où Tailwind doit chercher les classes utilisées
+ * Utilise la nouvelle directive @source de Tailwind 4
+ */
+@source "./theme/views/**/*.twig";
+@source "./theme/blocks/**/*.twig";
+@source "./theme/blocks/**/*.php";
+@source "./theme/**/*.php";
+
+/**
+ * 🔌 IMPORT DES PLUGINS TAILWIND
+ * Remplacement de la section plugins du fichier JS
+ * Support des plugins modernes et futurs
+ */
+/* @plugin "tailwindcss/typography";
+@plugin "tailwindcss/forms";
+@plugin "tailwindcss/aspect-ratio";
+@plugin "tailwindcss/container-queries"; */
+
+/**
+ * 🎨 STYLES DE BASE PERSONNALISÉS
+ * Définition des styles globaux appliqués automatiquement
+ * Alternative moderne à addBase() du système JS
+ */
+@layer base {
+  /**
+   * Configuration HTML de base
+   * Optimisations pour performance et accessibilité
+   */
+  html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  body {
+    /* font-family: theme(--font-heading); */
+    font-weight: 400;
+    line-height: 1.6;
+    color: theme(--color-gray-900);
+    background-color: theme(--color-white);
+
+    /* Optimisations de rendu du texte */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  /**
+   * Configuration des titres WordPress
+   * Hiérarchie typographique cohérente pour tous les contenus
+   */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: theme(--font-family-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: theme(--color-gray-900);
+  }
+
+  h1 { font-size: theme(--font-size-4xl); }
+  h2 { font-size: theme(--font-size-3xl); }
+  h3 { font-size: theme(--font-size-2xl); }
+  h4 { font-size: theme(--font-size-xl); }
+  h5 { font-size: theme(--font-size-lg); }
+  h6 { font-size: theme(--font-size-base); }
+
+  /**
+   * Optimisations pour les éléments WordPress
+   * Styles spécifiques aux templates et blocs
+   */
+  .wp-block-post-title {
+    font-family: theme(--font-family-heading);
+    font-weight: 700;
+    font-size: theme(--font-size-5xl);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .entry-content {
+    font-family: theme(--font-family-body);
+  }
+
+  /* Liens avec états hover optimisés */
+  a {
+    color: theme(--color-primary-600);
+    text-decoration: none;
+    transition: color theme(--duration-fast) theme(--easing-out);
+  }
+
+  a:hover {
+    color: theme(--color-primary-700);
+  }
+
+  a:focus {
+    outline: 2px solid theme(--color-primary-500);
+    outline-offset: 2px;
+  }
+}
+
+/**
+ * 🧩 COMPOSANTS PERSONNALISÉS
+ * Styles de composants réutilisables pour WordPress
+ * Alternative à addComponents() du système JS
+ */
+@layer components {
+  /**
+   * Boutons système avec variantes
+   * Composants cohérents pour toute l'interface
+   */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: --spacing(2) --spacing(4);
+    border-radius: theme(--border-radius-md);
+    font-weight: 500;
+    font-size: theme(--font-size-sm);
+    line-height: 1.5;
+    transition: all theme(--duration-fast) theme(--easing-out);
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background-color: theme(--color-primary-600);
+    color: theme(--color-white);
+    box-shadow: theme(--shadow-sm);
+  }
+
+  .btn-primary:hover {
+    background-color: theme(--color-primary-700);
+    box-shadow: theme(--shadow-md);
+  }
+
+  .btn-secondary {
+    background-color: theme(--color-gray-100);
+    color: theme(--color-gray-900);
+    border-color: theme(--color-gray-300);
+  }
+
+  .btn-secondary:hover {
+    background-color: theme(--color-gray-200);
+    border-color: theme(--color-gray-400);
+  }
+
+  /**
+   * Cards et conteneurs
+   * Composants layout pour contenu WordPress
+   */
+  .card {
+    background-color: theme(--color-white);
+    border-radius: theme(--border-radius-lg);
+    box-shadow: theme(--shadow-md);
+    overflow: hidden;
+    transition: box-shadow theme(--duration-normal) theme(--easing-out);
+  }
+
+  .card:hover {
+    box-shadow: theme(--shadow-lg);
+  }
+
+  .card-header {
+    padding: --spacing(6);
+    border-bottom: 1px solid theme(--color-gray-200);
+  }
+
+  .card-body {
+    padding: --spacing(6);
+  }
+
+  .card-footer {
+    padding: --spacing(4) --spacing(6);
+    background-color: theme(--color-gray-50);
+    border-top: 1px solid theme(--color-gray-200);
+  }
+
+  /**
+   * Navigation WordPress
+   * Styles pour menus et navigation
+   */
+  .nav-link {
+    display: block;
+    padding: --spacing(2) --spacing(4);
+    color: theme(--color-gray-700);
+    font-weight: 500;
+    border-radius: theme(--border-radius-md);
+    transition: all theme(--duration-fast) theme(--easing-out);
+  }
+
+  .nav-link:hover {
+    color: theme(--color-primary-600);
+    background-color: theme(--color-primary-50);
+  }
+
+  .nav-link.active {
+    color: theme(--color-primary-700);
+    background-color: theme(--color-primary-100);
+  }
+}
+
+/**
+ * 🛠️ UTILITAIRES PERSONNALISÉS
+ * Classes utilitaires spécifiques au projet Timberland
+ * Extension de l'écosystème Tailwind standard
+ */
+@layer utilities {
+  /* Utilitaires typographiques avancés */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Features OpenType pour typographie fine */
+  .font-feature-small-caps {
+    font-feature-settings: "smcp" 1;
+  }
+
+  .font-feature-tabular-nums {
+    font-feature-settings: "tnum" 1;
+  }
+
+  .font-feature-fractions {
+    font-feature-settings: "frac" 1;
+  }
+
+  /* Animations personnalisées */
+  .animate-fade-in {
+    animation: theme(--animation-fade-in);
+  }
+
+  .animate-slide-up {
+    animation: theme(--animation-slide-up);
+  }
+
+  .animate-bounce-subtle {
+    animation: theme(--animation-bounce-subtle);
+  }
+
+  /* Utilitaires de conteneur responsive */
+  .container-narrow {
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container-reading {
+    max-width: 75ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Utilitaires d'accessibilité */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .focus-visible-only {
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}
+
+/**
+ * 🎬 DÉFINITIONS D'ANIMATIONS KEYFRAMES
+ * Animations personnalisées pour interactions fluides
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/**
+ * 🌙 MODE SOMBRE (DARK MODE)
+ * Configuration automatique du thème sombre
+ * Utilise les préférences système de l'utilisateur
+ */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    /* Redéfinition des couleurs pour le mode sombre */
+    --color-white: #0f172a;
+    --color-black: #f8fafc;
+    --color-gray-50: #1e293b;
+    --color-gray-100: #334155;
+    --color-gray-200: #475569;
+    --color-gray-300: #64748b;
+    --color-gray-400: #94a3b8;
+    --color-gray-500: #cbd5e1;
+    --color-gray-600: #e2e8f0;
+    --color-gray-700: #f1f5f9;
+    --color-gray-800: #f8fafc;
+    --color-gray-900: #ffffff;
+  }
 }

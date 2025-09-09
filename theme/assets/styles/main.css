@@ -5,6 +5,198 @@
 
 @plugin '@tailwindcss/typography';
 
+/* theme/assets/styles/main.css - Tailwind CSS 4 Configuration */
+
+/**
+ * 🌊 TAILWIND CSS 4.0 - CONFIGURATION PRINCIPALE
+ * Ce fichier remplace complètement le tailwind.config.js
+ * Toute la configuration se fait désormais en CSS natif
+ */
+
+/**
+ * 🔧 IMPORTS TAILWIND CSS 4
+ * Nouvelle syntaxe d'import pour Tailwind 4
+ * Plus besoin de @import 'tailwindcss/base' etc.
+ */
+@import "tailwindcss";
+
+/**
+ * 📁 IMPORT DE LA CONFIGURATION THÈME
+ * Charge toute la configuration personnalisée depuis theme.css
+ * IMPORTANT: Doit être importé APRÈS tailwindcss mais AVANT les autres styles
+ */
+@import './theme.css';
+
+/**
+ * 🔌 CONFIGURATION DES PLUGINS (Alternative à tailwind.config.js)
+ * Les plugins sont maintenant chargés via @plugin dans le CSS
+ * Plus de gestion JavaScript nécessaire
+ */
+
+/**
+ * ⚙️ CONFIGURATION SPÉCIFIQUE WORDPRESS
+ * Styles nécessaires pour l'intégration WordPress/Timber optimale
+ */
+
+/* Correction de la barre d'admin WordPress */
 body.admin-bar {
+    /* Ajustement de la hauteur pour la barre d'administration */
     max-height: calc(100vh - 32px);
+
+    /* Sur mobile, la barre admin a une hauteur différente */
+    @media screen and (max-width: 782px) {
+        max-height: calc(100vh - 46px);
+    }
+}
+
+/* Styles pour l'éditeur WordPress (Gutenberg) */
+body.admin-bar .fixed-top {
+    /* Décalage pour les éléments fixés en haut */
+    top: 32px;
+
+    @media screen and (max-width: 782px) {
+        top: 46px;
+    }
+}
+
+/**
+ * 🎨 OPTIMISATIONS POUR L'ÉDITEUR WORDPRESS
+ * Assure une cohérence entre l'éditeur et le frontend
+ */
+.editor-styles-wrapper {
+    font-family: theme(--font-family-body);
+    font-size: theme(--font-size-base);
+    line-height: 1.6;
+    color: theme(--color-gray-900);
+}
+
+/* Titre d'article dans l'éditeur */
+.editor-post-title__input {
+    font-family: theme(--font-family-heading);
+    font-size: theme(--font-size-4xl);
+    font-weight: 700;
+    line-height: 1.1;
+    color: theme(--color-gray-900);
+}
+
+/**
+ * 📱 RESPONSIVE DESIGN AVANCÉ
+ * Utilise les breakpoints personnalisés définis dans theme.css
+ */
+
+/* Container responsive personnalisé pour WordPress */
+.wp-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: --spacing(4);
+    padding-right: --spacing(4);
+
+    /* Breakpoint xs */
+    @media (min-width: theme(--breakpoint-xs)) {
+        padding-left: --spacing(6);
+        padding-right: --spacing(6);
+    }
+
+    /* Breakpoint sm */
+    @media (min-width: theme(--breakpoint-sm)) {
+        max-width: theme(--breakpoint-sm);
+    }
+
+    /* Breakpoint md */
+    @media (min-width: theme(--breakpoint-md)) {
+        max-width: theme(--breakpoint-md);
+    }
+
+    /* Breakpoint lg */
+    @media (min-width: theme(--breakpoint-lg)) {
+        max-width: theme(--breakpoint-lg);
+    }
+
+    /* Breakpoint xl */
+    @media (min-width: theme(--breakpoint-xl)) {
+        max-width: theme(--breakpoint-xl);
+        padding-left: --spacing(8);
+        padding-right: --spacing(8);
+    }
+
+    /* Breakpoint 2xl */
+    @media (min-width: theme(--breakpoint-2xl)) {
+        max-width: theme(--breakpoint-2xl);
+    }
+}
+
+/**
+ * 🧱 STYLES POUR BLOCS GUTENBERG
+ * Optimisations spécifiques aux blocs WordPress modernes
+ */
+
+/* Blocs Gutenberg génériques */
+.wp-block {
+    max-width: theme(--breakpoint-xl);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contenu principal des articles */
+.wp-block-post-content {
+    max-width: theme(--breakpoint-xl);
+    margin: --spacing(6) auto;
+
+    /* Typography plugin styles pour le contenu */
+    @apply prose prose-lg prose-gray max-w-none;
+
+    /* Personnalisation de la prose */
+    --prose-body: theme(--color-gray-700);
+    --prose-headings: theme(--color-gray-900);
+    --prose-lead: theme(--color-gray-600);
+    --prose-links: theme(--color-primary-600);
+    --prose-bold: theme(--color-gray-900);
+    --prose-counters: theme(--color-gray-500);
+    --prose-bullets: theme(--color-gray-400);
+    --prose-hr: theme(--color-gray-300);
+    --prose-quotes: theme(--color-gray-900);
+    --prose-quote-borders: theme(--color-gray-300);
+    --prose-captions: theme(--color-gray-600);
+    --prose-code: theme(--color-gray-900);
+    --prose-pre-code: theme(--color-gray-200);
+    --prose-pre-bg: theme(--color-gray-800);
+    --prose-th-borders: theme(--color-gray-300);
+    --prose-td-borders: theme(--color-gray-200);
+}
+
+/* Titre principal de l'article */
+.wp-block-post-title {
+    font-family: theme(--font-family-heading);
+    font-size: theme(--font-size-4xl);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: --spacing(6);
+
+    /* Responsive sizing */
+    @media (min-width: theme(--breakpoint-md)) {
+        font-size: theme(--font-size-5xl);
+    }
+
+    @media (min-width: theme(--breakpoint-lg)) {
+        font-size: theme(--font-size-6xl);
+    }
+}
+
+/* Blocs de galerie */
+.wp-block-gallery {
+    display: grid;
+    gap: --spacing(4);
+
+    &.columns-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.columns-3 {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    &.columns-4 {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
