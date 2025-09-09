@@ -1,40 +1,40 @@
 {#
    Section Projets
    Galerie de projets réalisés
+   TODO ACF
 #}
 <section class="projects-section" id="projects">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title">Mes Projets</h2>
-            <div class="section-divider"></div>
+            <h2 class="section-title text-primary-600">Mes Projets</h2>
         </div>
 
         {% if theme_options.projects %}
             <div class="projects-grid">
                 {% for project in theme_options.projects %}
                     <div class="project-card">
-                        
+
                         {# Image du projet #}
                         {% if project.screenshot %}
                             <div class="project-image">
-                                <img src="{{ project.screenshot.sizes.large }}" 
+                                <img src="{{ project.screenshot.sizes.large }}"
                                      alt="{{ project.title }}"
                                      class="project-img">
-                                
+
                                 {# Overlay avec actions #}
                                 <div class="project-overlay">
                                     <div class="project-actions">
                                         {% if project.demo_url %}
-                                            <a href="{{ project.demo_url }}" 
+                                            <a href="{{ project.demo_url }}"
                                                class="btn btn-primary"
                                                target="_blank"
                                                rel="noopener noreferrer">
                                                 <i class="fas fa-eye"></i> Voir le projet
                                             </a>
                                         {% endif %}
-                                        
+
                                         {% if project.github_url %}
-                                            <a href="{{ project.github_url }}" 
+                                            <a href="{{ project.github_url }}"
                                                class="btn btn-secondary"
                                                target="_blank"
                                                rel="noopener noreferrer">
@@ -48,8 +48,8 @@
 
                         {# Contenu du projet #}
                         <div class="project-content">
-                            <h3 class="project-title">{{ project.title }}</h3>
-                            
+                            <h3 class="project-title text-primary-600">{{ project.title }}</h3>
+
                             {% if project.description %}
                                 <p class="project-description">{{ project.description }}</p>
                             {% endif %}
@@ -70,10 +70,10 @@
                                         <i class="fas fa-clock"></i> {{ project.duration }}
                                     </span>
                                 {% endif %}
-                                
+
                                 {% if project.team_size %}
                                     <span class="project-team">
-                                        <i class="fas fa-users"></i> 
+                                        <i class="fas fa-users"></i>
                                         {% if project.team_size == 1 %}
                                             Projet solo
                                         {% else %}
@@ -87,6 +87,6 @@
                 {% endfor %}
             </div>
         {% endif %}
-    
+
        </div>
 </section>

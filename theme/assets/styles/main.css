@@ -26,6 +26,7 @@
  * IMPORTANT: Doit être importé APRÈS tailwindcss mais AVANT les autres styles
  */
 @import './theme.css';
+@import './base/owlselector.css';
 
 /**
  * 🔌 CONFIGURATION DES PLUGINS (Alternative à tailwind.config.js)

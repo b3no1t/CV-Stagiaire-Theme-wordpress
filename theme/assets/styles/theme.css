@@ -23,7 +23,8 @@
   --color-primary-200: #bfdbfe;
   --color-primary-300: #93c5fd;
   --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;    /* Couleur principale */
+  --color-primary-500: #3b82f6;
+  /* Couleur principale */
   --color-primary-600: #2563eb;
   --color-primary-700: #1d4ed8;
   --color-primary-800: #1e40af;
@@ -69,23 +70,35 @@
    * Échelle d'espacement adaptée aux besoins WordPress
    * Basé sur une progression harmonieuse pour layouts cohérents
    */
-  --spacing-18: 4.5rem;    /* 72px - Entre lg et xl */
-  --spacing-22: 5.5rem;    /* 88px - Pour sections importantes */
-  --spacing-26: 6.5rem;    /* 104px - Espacement de section large */
-  --spacing-30: 7.5rem;    /* 120px - Headers/footers */
-  --spacing-36: 9rem;      /* 144px - Sections héros */
+  --spacing-18: 4.5rem;
+  /* 72px - Entre lg et xl */
+  --spacing-22: 5.5rem;
+  /* 88px - Pour sections importantes */
+  --spacing-26: 6.5rem;
+  /* 104px - Espacement de section large */
+  --spacing-30: 7.5rem;
+  /* 120px - Headers/footers */
+  --spacing-36: 9rem;
+  /* 144px - Sections héros */
 
   /**
    * 📐 BREAKPOINTS RESPONSIVES ÉTENDUS
    * Points de rupture optimisés pour WordPress et mobiles modernes
    */
-  --breakpoint-xs: 475px;      /* Très petits mobiles */
-  --breakpoint-sm: 640px;      /* Mobiles portrait */
-  --breakpoint-md: 768px;      /* Tablettes portrait */
-  --breakpoint-lg: 1024px;     /* Tablettes paysage */
-  --breakpoint-xl: 1280px;     /* Desktops */
-  --breakpoint-2xl: 1536px;    /* Grands écrans */
-  --breakpoint-3xl: 1920px;    /* Ultra-wide */
+  --breakpoint-xs: 475px;
+  /* Très petits mobiles */
+  --breakpoint-sm: 640px;
+  /* Mobiles portrait */
+  --breakpoint-md: 768px;
+  /* Tablettes portrait */
+  --breakpoint-lg: 1024px;
+  /* Tablettes paysage */
+  --breakpoint-xl: 1280px;
+  /* Desktops */
+  --breakpoint-2xl: 1536px;
+  /* Grands écrans */
+  --breakpoint-3xl: 1920px;
+  /* Ultra-wide */
 
   /**
    * 🎭 ANIMATIONS ET TRANSITIONS
@@ -125,14 +138,22 @@
    * 🔄 BORDURES ET RADIUS PERSONNALISÉS
    * Système de bordures harmonieux pour composants WordPress
    */
-  --border-radius-xs: 0.125rem;    /* 2px */
-  --border-radius-sm: 0.25rem;     /* 4px */
-  --border-radius-md: 0.375rem;    /* 6px */
-  --border-radius-lg: 0.5rem;      /* 8px */
-  --border-radius-xl: 0.75rem;     /* 12px */
-  --border-radius-2xl: 1rem;       /* 16px */
-  --border-radius-3xl: 1.5rem;     /* 24px */
-  --border-radius-full: 9999px;    /* Cercle parfait */
+  --border-radius-xs: 0.125rem;
+  /* 2px */
+  --border-radius-sm: 0.25rem;
+  /* 4px */
+  --border-radius-md: 0.375rem;
+  /* 6px */
+  --border-radius-lg: 0.5rem;
+  /* 8px */
+  --border-radius-xl: 0.75rem;
+  /* 12px */
+  --border-radius-2xl: 1rem;
+  /* 16px */
+  --border-radius-3xl: 1.5rem;
+  /* 24px */
+  --border-radius-full: 9999px;
+  /* Cercle parfait */
 }
 
 /**
@@ -161,6 +182,7 @@
  * Alternative moderne à addBase() du système JS
  */
 @layer base {
+
   /**
    * Configuration HTML de base
    * Optimisations pour performance et accessibilité
@@ -177,7 +199,7 @@
     font-weight: 400;
     line-height: 1.6;
     color: theme(--color-gray-900);
-    background-color: theme(--color-white);
+    /* background-color: var(--color-gray-300); */
 
     /* Optimisations de rendu du texte */
     text-rendering: optimizeLegibility;
@@ -190,20 +212,41 @@
    * Configuration des titres WordPress
    * Hiérarchie typographique cohérente pour tous les contenus
    */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: theme(--font-family-heading);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-    color: theme(--color-gray-900);
+
+
+  h1 {
+    font-size: var(--font-size-6xl);
   }
 
-  h1 { font-size: theme(--font-size-4xl); }
-  h2 { font-size: theme(--font-size-3xl); }
-  h3 { font-size: theme(--font-size-2xl); }
-  h4 { font-size: theme(--font-size-xl); }
-  h5 { font-size: theme(--font-size-lg); }
-  h6 { font-size: theme(--font-size-base); }
+  h2 {
+    font-size: theme(--font-size-3xl);
+  }
+
+  h3 {
+    font-size: theme(--font-size-2xl);
+  }
+
+  h4 {
+    font-size: theme(--font-size-xl);
+  }
+
+  h5 {
+    font-size: theme(--font-size-lg);
+  }
+
+  h6 {
+    font-size: theme(--font-size-base);
+  }
+
+  /***
+* Owl selector
+*/
+  .cv>*+* {
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid gray;
+  }
+
 
   /**
    * Optimisations pour les éléments WordPress
@@ -244,6 +287,7 @@
  * Alternative à addComponents() du système JS
  */
 @layer components {
+
   /**
    * Boutons système avec variantes
    * Composants cohérents pour toute l'interface
@@ -345,6 +389,7 @@
  * Extension de l'écosystème Tailwind standard
  */
 @layer utilities {
+
   /* Utilitaires typographiques avancés */
   .text-balance {
     text-wrap: balance;
@@ -357,6 +402,7 @@
   /* Features OpenType pour typographie fine */
   .font-feature-small-caps {
     font-feature-settings: "smcp" 1;
+    font-variant-caps: petite-caps;
   }
 
   .font-feature-tabular-nums {
@@ -422,6 +468,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -433,6 +480,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -440,36 +488,20 @@
 }
 
 @keyframes bounceSubtle {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-4px);
   }
+
   60% {
     transform: translateY(-2px);
-  }
-}
-
-/**
- * 🌙 MODE SOMBRE (DARK MODE)
- * Configuration automatique du thème sombre
- * Utilise les préférences système de l'utilisateur
- */
-@media (prefers-color-scheme: dark) {
-  @theme {
-    /* Redéfinition des couleurs pour le mode sombre */
-    --color-white: #0f172a;
-    --color-black: #f8fafc;
-    --color-gray-50: #1e293b;
-    --color-gray-100: #334155;
-    --color-gray-200: #475569;
-    --color-gray-300: #64748b;
-    --color-gray-400: #94a3b8;
-    --color-gray-500: #cbd5e1;
-    --color-gray-600: #e2e8f0;
-    --color-gray-700: #f1f5f9;
-    --color-gray-800: #f8fafc;
-    --color-gray-900: #ffffff;
   }
 }

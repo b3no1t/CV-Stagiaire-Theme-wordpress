@@ -10,6 +10,7 @@ Version: 2.2.0
 /**
  * Déclarations @font-face pour les polices personnalisées
  * Chaque déclaration charge une variante spécifique (poids, style)
+ * dans le fichier style.css à l'air d"etre le seul moyen d'injecter des webfonts dans la css ...
  */
 
 /* dejavu-diplay - Police principale pour les titres */

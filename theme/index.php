@@ -28,6 +28,7 @@ $context['theme_options'] = get_fields('option');
 $context['personal_info'] = get_field('personal_info', 'option');
 $context['skills']        = get_field('skills_categories', 'option');
 $context['experiences']   = get_field('experiences', 'option');
+$context['competences']   = get_field('competences', 'option');
 
 // La date en cours
 $timestamp = time();
