@@ -1,6 +1,7 @@
 {#
    Section Compétences
    Affichage des compétences techniques avec barres de progression
+   ! stand-by code used in about.twig
 #}
 <section class="skills-section" id="skills">
     <div class="container">
@@ -16,13 +17,13 @@
                         <div class="col-lg-6">
                             <div class="skills-category">
                                 <h3 class="category-title">{{ category.title }}</h3>
-                                
+
                                 {% if category.skills %}
                                     <div class="skills-list">
                                         {% for skill in category.skills %}
-                                            <div class="skill-item" 
+                                            <div class="skill-item"
                                                  data-skill-level="{{ skill.level }}">
-                                                
+
                                                 <div class="skill-header">
                                                     <span class="skill-name">
                                                         {% if skill.icon %}
@@ -32,10 +33,10 @@
                                                     </span>
                                                     <span class="skill-percentage">{{ skill.level }}%</span>
                                                 </div>
-                                                
+
                                                 {# Barre de progression animée #}
                                                 <div class="skill-progress">
-                                                    <div class="skill-progress-bar" 
+                                                    <div class="skill-progress-bar"
                                                          style="width: {{ skill.level }}%;"
                                                          data-progress="{{ skill.level }}">
                                                     </div>
@@ -59,8 +60,8 @@
                     {% for tool in theme_options.tools %}
                         <div class="tool-item" title="{{ tool.name }}">
                             {% if tool.logo %}
-                                <img src="{{ tool.logo.url }}" 
-                                     alt="{{ tool.name }}" 
+                                <img src="{{ tool.logo.url }}"
+                                     alt="{{ tool.name }}"
                                      class="tool-logo">
                             {% else %}
                                 <span class="tool-name">{{ tool.name }}</span>

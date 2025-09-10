@@ -1,92 +1,84 @@
 {#
-   Section Projets
-   Galerie de projets réalisés
-   TODO ACF
+  Section Projets
+  Galerie de projets réalisés
 #}
 <section class="projects-section" id="projects">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title text-primary-600">Mes Projets</h2>
-        </div>
+  <div class="container o-6">
+    <h2 class="section-title text-primary-600">
+      Mes Projets
+    </h2>
+    {% if projects %}
+      <div class="projects-grid">
 
-        {% if theme_options.projects %}
-            <div class="projects-grid">
-                {% for project in theme_options.projects %}
-                    <div class="project-card">
+        {# /TODO NESTING LOOP  #}
 
-                        {# Image du projet #}
-                        {% if project.screenshot %}
-                            <div class="project-image">
-                                <img src="{{ project.screenshot.sizes.large }}"
-                                     alt="{{ project.title }}"
-                                     class="project-img">
+        {% for project in projects %}
 
-                                {# Overlay avec actions #}
-                                <div class="project-overlay">
-                                    <div class="project-actions">
-                                        {% if project.demo_url %}
-                                            <a href="{{ project.demo_url }}"
-                                               class="btn btn-primary"
-                                               target="_blank"
-                                               rel="noopener noreferrer">
-                                                <i class="fas fa-eye"></i> Voir le projet
-                                            </a>
-                                        {% endif %}
-
-                                        {% if project.github_url %}
-                                            <a href="{{ project.github_url }}"
-                                               class="btn btn-secondary"
-                                               target="_blank"
-                                               rel="noopener noreferrer">
-                                                <i class="fab fa-github"></i> Code source
-                                            </a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}
-
-                        {# Contenu du projet #}
-                        <div class="project-content">
-                            <h3 class="project-title text-primary-600">{{ project.title }}</h3>
-
-                            {% if project.description %}
-                                <p class="project-description">{{ project.description }}</p>
-                            {% endif %}
-
-                            {# Technologies utilisées #}
-                            {% if project.technologies %}
-                                <div class="project-tech">
-                                    {% for tech in project.technologies %}
-                                        <span class="tech-badge">{{ tech.name }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-
-                            {# Métadonnées du projet #}
-                            <div class="project-meta">
-                                {% if project.duration %}
-                                    <span class="project-duration">
-                                        <i class="fas fa-clock"></i> {{ project.duration }}
-                                    </span>
-                                {% endif %}
-
-                                {% if project.team_size %}
-                                    <span class="project-team">
-                                        <i class="fas fa-users"></i>
-                                        {% if project.team_size == 1 %}
-                                            Projet solo
-                                        {% else %}
-                                            Équipe de {{ project.team_size }}
-                                        {% endif %}
-                                    </span>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+          <div class="p-4 card">
+            <div class="card-header">
+              <h3 class="project-title text-primary-600">
+                {{ project.title }}
+              </h3>
             </div>
-        {% endif %}
 
-       </div>
-</section>
+            {# Contenu dun projet #}
+            <div class="card-content">
+
+              {# Technologies utilisées #}
+              {% for child in project.project_rep %}
+
+                <img src="{{ project.thumbnail.src }}" alt="{{ project.thumbnail.alt }}">
+                  <h4>
+                    {{ child.brand_name }}
+                  </h4>
+
+                  {{ child.project_title }}
+
+                  <div class="prose project-description line-clamp-3">
+                    {{ child.description }}
+                  </div>
+                  <div class="flex items-baseline justify-between o-4">
+                    {% if child.duration %}
+                      <span class="project-duration">
+                        <i class="fas fa-clock"></i>
+                        {{ child.duration }}
+                      </span>
+                    {% endif %}
+
+                    <div class="project-tech">
+                      {% for item in child.technologies %}
+                        <span class="pl-2 tech-badge">
+                          <i class="fas fa-code"></i>
+                          {{ item.name }}
+                        </span>
+                      {% endfor %}
+                    </div>
+
+                    {# Métadonnées du projet #}
+                    <div class="project-meta">
+                      {% if child.team_size %}
+                        <span class="project-team">
+                          <i class="fas fa-users"></i>
+                          {% if child.team_size == 1 %}
+                            Projet solo
+                          {% else %}
+                            Équipe de
+                            {{ child.team_size }}
+                          {% endif %}
+                        </span>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <a href="#" class="mt-4 btn btn-primary">
+                    plus d'info
+                  </a>
+                {% endfor %}
+              </div>
+
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+    </div>
+  </section>

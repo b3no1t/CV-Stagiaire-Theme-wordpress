@@ -10,44 +10,20 @@
     </h2>
 
     <div class="o-6">
+
       {% if theme_options.about_text %}
-        <div class="prose about-text">
+        <div class="prose-2xl about-text border-b-black">
           {{ theme_options.about_text | raw }}
         </div>
       {% endif %}
 
-      {# Liste des points forts #}
-      {% if theme_options.competences %}
-      <div class="strengths-list">
-        <h3 class="strengths-title text-primary-600">
-          Mes atouts
-        </h3>
-        <ul class="text-gray-800 strengths-items">
-          {% for strength in theme_options.skills_categories %}
-            {% for child in strengh.children %}
-
-              <li class="strength-item">
-                {% if strength.icon %}
-                  <i class="{{ strength.icon }}"></i>
-                {% endif %}
-                <span>
-                  {{ strength.text }}
-                </span>
-              </li>
-            {% endfor %}
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-    </div>
-
-    {# Colonne de droite - Informations personnelles #}
-      <div class="personal-info o-6">
+      {# Informations personnelles #}
+      <div class="pt-8 personal-info o-6">
         <h3 class="info-title">
           Informations
         </h3>
 
-        <div class="info-list o-1">
+        <div class="text-lg info-list o-1">
           {% if theme_options.age %}
             <div class="info-item">
               <span class="info-label">
@@ -96,28 +72,53 @@
               </span>
             </div>
           {% endif %}
+
+          {% if theme_options.social_networks %}
+            <div class="social-links o-6">
+              <div class="social-list">
+                {% for social in theme_options.social_networks %}
+                  <a href="{{ social.url }}" class="flex gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
+                    <img src="{{ social.icon }}" class="w-8 aspect-square " alt="{{ social.platform }}" />
+                    <span>
+                      {{ social.platform }}
+                    </span>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
         </div>
 
-        {# Réseaux sociaux #}
-        {% if theme_options.social_networks %}
-          <div class="social-links o-6">
-            <h4 class="social-title">
-              Me suivre
-            </h4>
-            <div class="social-list">
-              {% for social in theme_options.social_networks %}
-                <a href="{{ social.url }}" class="flex gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
-                <img
-                  src="{{ social.icon }}"
-                  class="w-8 aspect-square "
-                  alt="{{ social.platform }}"
-                />
-                <span>{{ social.platform }}</span>
-                </a>
-              {% endfor %}
-            </div>
-          </div>
-        {% endif %}
       </div>
+
+      {# Liste des points forts #}
+      {% if theme_options.skills_categories %}
+        <div class="strengths-list">
+          <h3 class="pt-8 my-4 strengths-title text-primary-600">
+            Mes atouts
+          </h3>
+          <ul class="text-gray-800 strengths-items o-2 ">
+            {% for strength in theme_options.skills_categories %}
+              <li>
+                <h4 class="mb-4 text-2xl">{{ strength.title }}</h4>
+             <ul class="flex gap-2">
+              {% for child in strength.competences %}
+                <li class="px-4 py-2 text-white bg-blue-400 rounded-lg strength-item">
+                  {% if child.icon %}
+                    <i class="{{ child.icon }}"></i>
+                  {% endif %}
+                  <span>
+                    {{ child.name }}
+                  </span>
+                </li>
+                 </li>
+              {% endfor %}
+              </ul>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+    </div>
   </div>
 </section>

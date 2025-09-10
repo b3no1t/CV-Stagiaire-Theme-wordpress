@@ -30,6 +30,16 @@ $context['skills']        = get_field('skills_categories', 'option');
 $context['experiences']   = get_field('experiences', 'option');
 $context['competences']   = get_field('competences', 'option');
 
+// Méthode Timber - Simple et élégante
+$projects = Timber::get_posts([
+    'post_type' => 'project',           // On spécifie le type de contenu custom
+    'category_name' => 'Projects',       // Nom de la catégorie (slug ou nom)
+    'posts_per_page' => -1,             // -1 = tous les posts, sinon limite numérique
+    'post_status' => 'publish'          // Seulement les posts publiés
+]);
+
+$context['projects'] = $projects;
+
 // La date en cours
 $timestamp = time();
 $datetime_object = current_datetime();
