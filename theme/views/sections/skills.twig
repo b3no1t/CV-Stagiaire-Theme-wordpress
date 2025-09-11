@@ -14,15 +14,20 @@
     {# {% if theme_options.skills_categories %} #}
     <div class="skills-content">
       <div class="row">
+
         {% for category in theme_options.skills_categories %}
+
           <div class="col-lg-6">
             <div class="skills-category">
               <h3 class="category-title">
                 {{ category.title }}
               </h3>
+
               {% if category.skills %}
                 <div class="skills-list">
-                  {% for skill in category.skills %}
+
+                {% for skill in category.skills %}
+
                     <div class="skill-item" data-skill-level="{{ skill.level }}">
                       <div class="skill-header">
                         <span class="skill-name">
@@ -57,8 +62,10 @@
           Outils & Technologies
         </h3>
         <div class="tools-grid">
-          {% for tool in theme_options.tools %}
-            <div class="tool-item" title="{{ tool.name }}">
+
+        {% for tool in theme_options.tools %}
+
+        <div class="tool-item" title="{{ tool.name }}">
               {% if tool.logo %}
                 <img
                 src="{{ tool.logo.url }}" alt="{{ tool.name }}" class="tool-logo">

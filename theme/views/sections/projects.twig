@@ -9,16 +9,20 @@
     </h2>
     {% if projects %}
       <div class="flex flex-col gap-2 projects-grid o-6">
+
         {% for project in projects %}
-          <div class="p-4 card">
+
+        <div class="p-4 card">
             <div class="card-header">
               <h4 class="project-title text-primary-600">
                 {{ project.title }}
               </h4>
             </div>
             <div class="card-content">
+
               {# Technologies utilisées #}
               {% for child in project.project_rep %}
+
                 <div class="flex items-center gap-4">
                   <img src="{{ project.thumbnail.src|resize(80) }}" alt="{{ project.thumbnail.alt }}">
                   <h4>{{ child.brand_name }}</h4>

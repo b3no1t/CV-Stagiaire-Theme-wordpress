@@ -70,7 +70,7 @@ class Timberland extends Timber\Site
         );
 
         add_theme_support('menus');
-        add_theme_support('post-thumbnails');// image a la une
+        add_theme_support('post-thumbnails');// image de presentation
         add_theme_support('title-tag');
         add_theme_support('editor-styles');
 
