@@ -20,7 +20,7 @@
               {# Technologies utilisées #}
               {% for child in project.project_rep %}
                 <div class="flex items-center gap-4">
-                  <img src="{{ project.thumbnail.src }}" alt="{{ project.thumbnail.alt }}">
+                  <img src="{{ project.thumbnail.src|resize(80) }}" alt="{{ project.thumbnail.alt }}">
                   <h4>{{ child.brand_name }}</h4>
                 </div>
                   <div class="prose project-description line-clamp-3">
