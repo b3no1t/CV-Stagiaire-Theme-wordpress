@@ -8,6 +8,7 @@
     "email": "cgearls@gmail.com"
   }],
   "require": {
+    "mindkomm/timmy": "^2.2",
     "timber/timber": "^2.0"
   },
   "config": {

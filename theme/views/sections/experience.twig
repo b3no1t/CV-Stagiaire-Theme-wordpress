@@ -20,8 +20,12 @@
         <h3>
           {{ item.company_name }}
         </h3>
-        <img src="{{ item.company_logo }}" alt="logo">
-          <ul>
+
+        {# <img src="{{ item.company_logo }}" alt="logo"> #}
+
+        <img{{ item.company_logo|get_timber_image_responsive('medium-custom') }}>
+
+        <ul>
             <li>
               {{ item.start_date }}
             </li>

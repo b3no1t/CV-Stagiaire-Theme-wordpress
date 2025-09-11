@@ -27,6 +27,8 @@ class Timberland extends Timber\Site
         parent::__construct();
     }
 
+
+
     public function add_to_context($context)
     {
         $context['site']    = $this;
@@ -176,6 +178,19 @@ class Timberland extends Timber\Site
 }
 
 new Timberland();
+
+
+add_filter( 'timmy/sizes', function( $sizes ) {
+    return array(
+        'medium-custom' => array(
+            'resize' => array( 650 ),
+            'srcset' => array( 2 ),
+            'sizes' => '(min-width: 992px) 33.333vw, 100vw',
+            'name' => 'Width 1/4 fix',
+            'post_types' => array( 'post', 'page' ),
+        ),
+    );
+} );
 
 function acf_block_render_callback($block, $content)
 {

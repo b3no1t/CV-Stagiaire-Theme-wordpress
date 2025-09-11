@@ -47,6 +47,10 @@ $formatted_date = $datetime_object->format('Ymd');
 $formatted_date = wp_date('Ymd');
 
 
+// TIMMY RWD
+
+Timmy\Timmy::init();
+
 
 $templates = array( 'index.twig' );
 
