@@ -198,7 +198,7 @@
     /* font-family: theme(--font-heading); */
     font-weight: 400;
     line-height: 1.6;
-    color: theme(--color-gray-900);
+    color: theme(--color-stone-900);
     /* background-color: var(--color-gray-300); */
 
     /* Optimisations de rendu du texte */
@@ -239,8 +239,8 @@
   }
 
   /***
-* Owl selector
-*/
+  * Owl selector
+  */
   .cv>*+* {
     margin-top: 2rem;
     padding-bottom: 1rem;
@@ -272,7 +272,7 @@
   }
 
   a:hover {
-    color: theme(--color-primary-700);
+    color: theme(--color-primary-900);
   }
 
   a:focus {
@@ -333,28 +333,28 @@
    * Composants layout pour contenu WordPress
    */
   .card {
-    background-color: theme(--color-white);
-    border-radius: theme(--border-radius-lg);
-    box-shadow: theme(--shadow-md);
+    background-color: theme(--color-stone-50);
+    /* box-shadow: theme(--shadow-md); */
+    border-bottom: 1px solid theme(--color-gray-600);
     overflow: hidden;
-    transition: box-shadow theme(--duration-normal) theme(--easing-out);
+    transition: background-color theme(--duration-normal) theme(--easing-out);
   }
 
   .card:hover {
-    box-shadow: theme(--shadow-lg);
+    background-color: theme(--color-stone-100);
+    /* box-shadow: theme(--shadow-lg); */
   }
 
   .card-header {
-    padding: --spacing(6);
-    border-bottom: 1px solid theme(--color-gray-200);
+    padding: --spacing(3);
   }
 
   .card-body {
-    padding: --spacing(6);
+    padding: --spacing(3);
   }
 
   .card-footer {
-    padding: --spacing(4) --spacing(6);
+    padding: --spacing(4) --spacing(3);
     background-color: theme(--color-gray-50);
     border-top: 1px solid theme(--color-gray-200);
   }

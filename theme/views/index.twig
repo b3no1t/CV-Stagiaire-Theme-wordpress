@@ -6,18 +6,18 @@
 
 {% block content %}
   {# Section Hero/Présentation #}
-  <section class="bg-no-repeat  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center mb-16" style="background-image: url({{ theme_options.profile_photo }}); ">
+  <section class="bg-no-repeat w-full  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center mb-16" style="background-image: url({{ theme_options.profile_photo }}); ">
     <div class="absolute w-full h-full backdrop bg-black/25 "></div>
-    <div class="z-10 text-center hero-content">
+    <div class="z-10 hero-content">
     <h1 class="text-white font-feature-small-caps hero-subtitle ">
       {{ site.description }}
     </h1>
-      <h2 class="text-primary-600 hero-title">
+      <h2 class="text-white hero-title">
         {{ site.name }}
       </h2>
 
       {# Bouton d'action principal #}
-      <div class="mt-2 hero-actions">
+      <div class="mt-8 hero-actions">
         <a href="#contact" class="btn btn-primary">
           Me contacter
         </a>
@@ -38,7 +38,7 @@
 
   <section>
     <div class="container mx-auto">
-      <div class=" columns-1 md:columns-2 cv o-12">
+      <div class="grid grid-cols-1 gap-8 p-8 sm:grid-cols-2">
 
         <article class="about" id="content">
           {# Section À propos #}
