@@ -6,12 +6,12 @@
 
 {% block content %}
   {# Section Hero/Présentation #}
-  <section class="bg-no-repeat w-full  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center mb-16" style="background-image: url({{ theme_options.profile_photo }}); ">
+  <section class="bg-no-repeat w-full  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center" style="background-image: url({{ theme_options.profile_photo }}); ">
     <div class="absolute w-full h-full backdrop bg-black/25 "></div>
     <div class="z-10 hero-content">
-    <h1 class="text-white font-feature-small-caps hero-subtitle ">
-      {{ site.description }}
-    </h1>
+      <h1 class="text-white font-feature-small-caps hero-subtitle ">
+        {{ site.description }}
+      </h1>
       <h2 class="text-white hero-title">
         {{ site.name }}
       </h2>
@@ -38,47 +38,49 @@
 
   <section>
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 gap-8 p-8 sm:grid-cols-2">
+      <div class="grid grid-cols-1 gap-8 p-4 v sm:p-16 md:grid-cols-2">
 
         <article class="about" id="content">
           {# Section À propos #}
           {% include 'sections/about.twig' %}
         </article>
 
-
         <article class="projects">
           {# Section Projects #}
           {% include 'sections/projects.twig' %}
         </article>
 
+        {# EXP #}
+
         <article class="education o-6">
-          <h2 class="text-primary-600">
-            EXPÉRIENCE PROFESSIONNELLE
-          </h2>
-          {% for item in theme_options.experiences %}
-            <section class="item-{{loop.index}}">
-              <div class="text-sm opacity-50 date">
-                {{ item.start_date }}
-                /
-                {{ item.end_date }}
-              </div>
-              <h3 class="company text-stone-600">
-                {{ item.company_name }}
-              </h3>
-              <div class="company-role text-primary-600">
-                {{ item.job_title }}
-              </div>
-            </section>
-          {% endfor %}
-        </article>
+          <h2 class="leading-none">
+            EXPÉRIENCE
+            <br>
+              PROFESSIONNELLE
+            </h2>
+            {% for item in theme_options.experiences %}
+              <section class="item-{{ loop.index }}">
+                <div class="text-sm opacity-50 date">
+                  {{ item.start_date }}
+                  /
+                  {{ item.end_date }}
+                </div>
+                <h3 class="company text-stone-600">
+                  {{ item.company_name }}
+                </h3>
+                <div class="company-role text-primary-600">
+                  {{ item.job_title }}
+                </div>
+              </section>
+            {% endfor %}
+          </article>
 
         {# <article class="experience"> #}
         {# Section Experiences #}
-          {# {% include 'sections/experience.twig' %} #}
+        {# {% include 'sections/experience.twig' %} #}
         {# </article> #}
       </div>
     </div>
   </section>
-
 
   {% endblock %}

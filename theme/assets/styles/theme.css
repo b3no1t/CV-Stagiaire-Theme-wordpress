@@ -171,7 +171,8 @@
  * Remplacement de la section plugins du fichier JS
  * Support des plugins modernes et futurs
  */
-/* @plugin "tailwindcss/typography";
+/*
+@plugin "tailwindcss/typography";
 @plugin "tailwindcss/forms";
 @plugin "tailwindcss/aspect-ratio";
 @plugin "tailwindcss/container-queries"; */
@@ -198,7 +199,7 @@
     /* font-family: theme(--font-heading); */
     font-weight: 400;
     line-height: 1.6;
-    color: theme(--color-stone-900);
+    color: theme(--color-stone-600);
     /* background-color: var(--color-gray-300); */
 
     /* Optimisations de rendu du texte */
@@ -241,7 +242,7 @@
   /***
   * Owl selector
   */
-  .cv>*+* {
+  .cv > * + * {
     margin-top: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid gray;
@@ -333,15 +334,15 @@
    * Composants layout pour contenu WordPress
    */
   .card {
-    background-color: theme(--color-stone-50);
+    background-color: theme(--color-white);
     /* box-shadow: theme(--shadow-md); */
-    border-bottom: 1px solid theme(--color-gray-600);
+    /* border-bottom: 1px solid theme(--color-gray-300); */
     overflow: hidden;
     transition: background-color theme(--duration-normal) theme(--easing-out);
   }
 
   .card:hover {
-    background-color: theme(--color-stone-100);
+    /* background-color: theme(--color-stone-100); */
     /* box-shadow: theme(--shadow-lg); */
   }
 
@@ -355,8 +356,8 @@
 
   .card-footer {
     padding: --spacing(4) --spacing(3);
-    background-color: theme(--color-gray-50);
-    border-top: 1px solid theme(--color-gray-200);
+    /* background-color: theme(--color-gray-50); */
+    /* border-top: 1px solid theme(--color-gray-200); */
   }
 
   /**

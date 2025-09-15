@@ -5,7 +5,7 @@
 <section class="about-section" id="about">
   <div class="container o-8">
 
-    <h2 class="section-title text-primary-600">
+    <h2 class="section-title">
       À propos de moi
     </h2>
 
@@ -17,10 +17,11 @@
         </div>
       {% endif %}
 
+<div class="flex flex-row items-baseline gap-16">
       {# Informations personnelles #}
       <div class="pt-8 personal-info o-6">
         <h3 class="info-title">
-          Informations
+         Mes informations
         </h3>
 
         <div class="text-lg info-list o-1">
@@ -87,25 +88,28 @@
               </div>
             </div>
           {% endif %}
+
         </div>
 
       </div>
 
+<div class="h-full separator"></div>
+
       {# Liste des points forts #}
       {% if theme_options.skills_categories %}
-        <div class="strengths-list">
-          <h3 class="pt-8 my-4 strengths-title text-primary-600">
+        <div class="strengths-list 1">
+          <h3 class="pt-8 my-4 strengths-title text-blck">
             Mes atouts
           </h3>
-          <ul class="text-gray-800 strengths-items o-2 ">
+          <ul class="text-gray-800 strengths-items o-4 ">
             {% for strength in theme_options.skills_categories %}
               <li>
-                <h4 class="mb-4 text-2xl">{{ strength.title }}</h4>
+                <h4 class="mb-2 text-2xl">{{ strength.title }}</h4>
              <ul class="flex gap-2">
               {% for child in strength.competences %}
-                <li class="px-2 py-1 text-white rounded-lg bg-stone-400 strength-item">
+                <li class="px-2 py-1 text-xs rounded-lg text-stone-400 border-stone-400 border-1 strength-item">
                   {% if child.icon %}
-                    <i class="{{ child.icon }}"></i>
+                    <i class="{{ child.icon }} text-primary-300"></i>
                   {% endif %}
                   <span>
                     {{ child.name }}
@@ -118,7 +122,7 @@
           </ul>
         </div>
       {% endif %}
-
+</div>
     </div>
   </div>
 </section>

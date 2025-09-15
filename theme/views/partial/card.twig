@@ -1,0 +1,56 @@
+{# ? waiting for documentation looping and inlcude #}
+
+<div class="p-4 card">
+  <div class="card-header">
+    <h4 class="project-title text-primary-600">
+      {{ project.title }}
+    </h4>
+  </div>
+  <div class="card-content">
+    {# Technologies utilisées #}
+    {% for child in project.project_rep %}
+      <div class="flex items-center gap-4">
+        <img src="{{ project.thumbnail.src|resize(80) }}" alt="{{ project.thumbnail.alt }}">
+          <h4>
+            {{ child.brand_name }}
+          </h4>
+        </div>
+        <div class="prose project-description line-clamp-3">
+          {{ child.description }}
+        </div>
+        <div class="flex items-baseline justify-between o-4">
+          {% if child.duration %}
+            <span class="project-duration">
+              <i class="fas fa-clock"></i>
+              {{ child.duration }}
+            </span>
+          {% endif %}
+          <div class="project-tech">
+            {% for item in child.technologies %}
+              <span class="pl-2 tech-badge">
+                <i class="fas fa-code"></i>
+                {{ item.name }}
+              </span>
+            {% endfor %}
+          </div>
+          {# Métadonnées du projet #}
+          <div class="project-meta">
+            {% if child.team_size %}
+              <span class="project-team">
+                <i class="fas fa-users"></i>
+                {% if child.team_size == 1 %}
+                  Projet solo
+                {% else %}
+                  Équipe de
+                  {{ child.team_size }}
+                {% endif %}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+        <a href="#" class="mt-4 btn btn-primary">
+          plus d'info
+        </a>
+      {% endfor %}
+    </div>
+  </div>

@@ -4,73 +4,80 @@
 #}
 <section class="projects-section" id="projects">
   <div class="container">
-    <h2 class="mb-8 section-title text-primary-600">
-      Use case
+    <h2 class="section-title">
+      Use cases
     </h2>
     {% if projects %}
-      <div class="flex flex-col gap-2 projects-grid o-6">
+      <div class="grid grid-cols-1 gap-2 projects-grid ">
 
         {% for project in projects %}
 
-        <div class="p-4 card">
+          {# CARD #}
+
+          <div class="w-full p-4 border-b-2 card">
+
             <div class="card-header">
-              <h4 class="project-title text-primary-600">
+              <h4 class="project-title">
                 {{ project.title }}
               </h4>
             </div>
-            <div class="card-content">
 
+            <div class=" card-content">
               {# Technologies utilisées #}
-              {% for child in project.project_rep %}
-
-                <div class="flex items-center gap-4">
-                  <img src="{{ project.thumbnail.src|resize(80) }}" alt="{{ project.thumbnail.alt }}">
-                  <h4>{{ child.brand_name }}</h4>
+              <div class="flex items-center gap-4">
+                <img src="{{ project.thumbnail.src|resize(80) }}" alt="{{ project.thumbnail.alt }}">
+                  <h4>
+                    {{ child.brand_name }}
+                  </h4>
                 </div>
-                  <div class="prose project-description line-clamp-3">
-                    {{ child.description }}
+
+                <div class="prose project-description line-clamp-3 text-pretty">
+                  {{ project.description }}
+                </div>
+
+                <div class="flex items-baseline gap-4 o-4">
+                  {% if project.duration %}
+                    <span class="project-duration">
+                      <i class="fas fa-clock"></i>
+                      {{ project.duration }}
+                    </span>
+                  {% endif %}
+                  <div class="project-tech">
+                    {% for item in project.technologie %}
+                      <span class="pl-1 tech-badge">
+                        <i class="fas fa-code"></i>
+                        {{ item.name }}
+                      </span>
+                    {% endfor %}
                   </div>
-                  <div class="flex items-baseline justify-between o-4">
-                    {% if child.duration %}
-                      <span class="project-duration">
-                        <i class="fas fa-clock"></i>
-                        {{ child.duration }}
+                  {# Métadonnées du projet #}
+                  <div class="project-meta">
+                    {% if project.team_size %}
+                      <span class="project-team">
+                        <i class="fas fa-users"></i>
+                        {% if project.team_size == 1 %}
+                          Projet solo
+                        {% else %}
+                          Équipe de
+                          {{ project.team_size }}
+                        {% endif %}
                       </span>
                     {% endif %}
-
-                    <div class="project-tech">
-                      {% for item in child.technologies %}
-                        <span class="pl-2 tech-badge">
-                          <i class="fas fa-code"></i>
-                          {{ item.name }}
-                        </span>
-                      {% endfor %}
-                    </div>
-
-                    {# Métadonnées du projet #}
-                    <div class="project-meta">
-                      {% if child.team_size %}
-                        <span class="project-team">
-                          <i class="fas fa-users"></i>
-                          {% if child.team_size == 1 %}
-                            Projet solo
-                          {% else %}
-                            Équipe de
-                            {{ child.team_size }}
-                          {% endif %}
-                        </span>
-                      {% endif %}
-                    </div>
                   </div>
-                  <a href="#" class="mt-4 btn btn-primary">
+                </div>
+
+                <div class="card-footer">
+                  <a href="{{ project.link }}" class="mt-4 btn btn-primary">
                     plus d'info
                   </a>
-                {% endfor %}
+                </div>
+
+              </div>
               </div>
 
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    </div>
-  </section>
+            {# <div class="section-divider"></div> #}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </section>
