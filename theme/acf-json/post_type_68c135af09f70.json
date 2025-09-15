@@ -42,7 +42,7 @@
         "item_link": "Lien project",
         "item_link_description": "Un lien vers un project."
     },
-    "description": "",
+    "description": "Un champs customizé pour les pages project",
     "public": true,
     "hierarchical": false,
     "exclude_from_search": false,
@@ -86,5 +86,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "",
-    "modified": 1757590517
+    "modified": 1757936113
 }
