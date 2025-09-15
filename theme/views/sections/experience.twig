@@ -5,36 +5,38 @@
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">
-        Expérience<br>Professionnelle
-      </h2>
-      <div class="section-divider"></div>
-    </div>
-
-    <div>
-
-      {% for item in theme_options.experiences %}
-        <h2>
-          {{ item.job_title }}
+        Expérience
+        <br>
+          Professionnelle
         </h2>
-        <h3>
-          {{ item.company_name }}
-        </h3>
-
-        {# <img src="{{ item.company_logo }}" alt="logo"> #}
-
-        <img{{ item.company_logo|get_timber_image_responsive('medium-custom') }}>
-
-        <ul>
-            <li>
-              {{ item.start_date }}
-            </li>
-            <li>
-              {{ item.end_date }}
-            </li>
-          </ul>
-        {% endfor %}
-
+        <div class="section-divider"></div>
       </div>
 
-    </div>
-  </section>
+      <div>
+
+        {% for item in theme_options.experiences %}
+            <h2>
+              {{ item.job_title }}
+            </h2>
+            <h3>
+              {{ item.company_name }}
+            </h3>
+
+            {# <img src="{{ item.company_logo }}" alt="logo"> #}
+
+            <img{{ item.company_logo|get_timber_image_responsive('medium-custom') }}>
+
+              <ul>
+                <li>
+                  {{ item.start_date }}
+                </li>
+                <li>
+                  {{ item.end_date }}
+                </li>
+              </ul>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
