@@ -30,6 +30,7 @@ $context['skills']        = get_field('skills_categories', 'option');
 $context['experiences']   = get_field('experiences', 'option');
 $context['competences']   = get_field('competences', 'option');
 
+
 // Méthode Timber - Simple et élégante
 $projects = Timber::get_posts([
     'post_type' => 'project',           // On spécifie le type de contenu custom

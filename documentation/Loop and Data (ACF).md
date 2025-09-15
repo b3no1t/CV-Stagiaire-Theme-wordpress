@@ -14,7 +14,7 @@
 
 ### 1 - ACF
 
-- create a Custom Post Type
+- create a Custom Post Type (project)
 - create a Custom Fields (the content of the C.P.T)
 
 ### 2 - PHP

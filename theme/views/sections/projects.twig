@@ -1,40 +1,35 @@
 {#
-  Section Projets
-  Galerie de projets réalisés
+  Section Use Cases
+  ! Sélections de projets.
 #}
 <section class="projects-section" id="projects">
   <div class="container">
+
     <h2 class="section-title">
       Use cases
     </h2>
+
     {% if projects %}
       <div class="grid grid-cols-1 gap-2 projects-grid ">
-
         {% for project in projects %}
-
           {# CARD #}
-
           <div class="w-full p-4 border-b-2 card">
-
             <div class="card-header">
               <h4 class="project-title">
                 {{ project.title }}
               </h4>
             </div>
-
             <div class=" card-content">
-              {# Technologies utilisées #}
+              {# ! Technologies utilisées #}
               <div class="flex items-center gap-4">
                 <img src="{{ project.thumbnail.src|resize(80) }}" alt="{{ project.thumbnail.alt }}">
                   <h4>
                     {{ child.brand_name }}
                   </h4>
                 </div>
-
                 <div class="prose project-description line-clamp-3 text-pretty">
                   {{ project.description }}
                 </div>
-
                 <div class="flex items-baseline gap-4 o-4">
                   {% if project.duration %}
                     <span class="project-duration">
@@ -50,7 +45,7 @@
                       </span>
                     {% endfor %}
                   </div>
-                  {# Métadonnées du projet #}
+                  {# ! Métadonnées du projet #}
                   <div class="project-meta">
                     {% if project.team_size %}
                       <span class="project-team">
@@ -65,17 +60,13 @@
                     {% endif %}
                   </div>
                 </div>
-
                 <div class="card-footer">
                   <a href="{{ project.link }}" class="mt-4 btn btn-primary">
                     plus d'info
                   </a>
                 </div>
-
               </div>
               </div>
-
-            {# <div class="section-divider"></div> #}
             {% endfor %}
           </div>
         {% endif %}
