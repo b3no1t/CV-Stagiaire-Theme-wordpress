@@ -45,10 +45,21 @@
           {% include 'sections/about.twig' %}
         </article>
 
-        <article class="projects">
-          {# Section Projects #}
-          {% include 'sections/projects.twig' %}
-        </article>
+        <section class="projects-section" id="projects">
+          <div class="container">
+            <h2 class="section-title">
+              Use cases
+            </h2>
+            {% if projects %}
+              <div class="grid grid-cols-1 gap-2 projects-grid ">
+                {% for project in projects %}
+                  {% include "./partial/card.twig" with {'project': project} %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </section>
+
 
         {# EXP #}
 

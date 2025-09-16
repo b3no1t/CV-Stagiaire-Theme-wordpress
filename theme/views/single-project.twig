@@ -7,14 +7,13 @@
   Faciliter la navigation (retour au CV, liens utiles).
   Créer un impact visuel et professionnel.
 
-   c''est ton CV en action. Elle doit raconter une histoire : le problème → ta solution → ce que tu as appris → ce que tu proposes.
+  c''est ton CV en action. Elle doit raconter une histoire : le problème → ta solution → ce que tu as appris → ce que tu proposes.
 
-    En tant que junior, l'accent mis sur ton apprentissage et ta réflexion vaut plus que la perfection du projet. Sois honnête, clair, et montre ta passion !
+  En tant que junior, l'accent mis sur ton apprentissage et ta réflexion vaut plus que la perfection du projet. Sois honnête, clair, et montre ta passion !
 
 #}
 
 {% extends 'base.twig' %}
-
 
 {% block content %}
 
@@ -25,12 +24,18 @@
         {{ site.name }}
         CV
       </h3>
-      <a href="{{ site.link }}" class="btn btn-primary">← Retour au portfolio</a>
+      <a href="{{ site.link }}" class="btn btn-primary">
+        ← Retour au portfolio
+      </a>
     </header>
 
     <section class="hero">
-      <h1>{{ post.title }}</h1>
-      <p>Gestionnaire de tâches collaboratif — Projet personnel</p>
+      <h1>
+        {{ post.title }}
+      </h1>
+      <p>
+        Gestionnaire de tâches collaboratif — Projet personnel
+      </p>
       <img src="{{ post.thumbnail.src|resize(80) }}" alt="{{ post.thumbnail.alt }}" />
       <div class="project-tech">
         {% for item in post.technologie %}
@@ -43,44 +48,67 @@
       <p>
         Posted by
         {{ post.author.name }}
-        <span>&bull;</span>
-        <time datetime="{{ post.date('Y-m-d H:i:s') }}">{{ post.date }}</time>
+        <span>
+          &bull;
+        </span>
+        <time datetime="{{ post.date('Y-m-d H:i:s') }}">
+          {{ post.date }}
+        </time>
       </p>
     </section>
 
     <section class="overview">
-      <h2>À propos</h2>
-      <p>{{ post.description }}</p>
+      <h2>
+        À propos
+      </h2>
+      <p>
+        {{ post.description }}
+      </p>
     </section>
 
     <section class="tech-stack">
       {# TODO #}
-      <h2>Technologies utilisées</h2>
+      <h2>
+        Technologies utilisées
+      </h2>
       <ul>
-        <li>Frontend : React, TailwindCSS</li>
-        <li>Backend : SQL</li>
-        <li>Outils : Figma, Git, Composer</li>
+        <li>
+          Frontend : React, TailwindCSS
+        </li>
+        <li>
+          Backend : SQL
+        </li>
+        <li>
+          Outils : Figma, Git, Composer
+        </li>
       </ul>
     </section>
 
     <section class="gallery">
-      <h2>Démonstration</h2>
+      <h2>
+        Démonstration
+      </h2>
       {# <img src="screenshot1.png" alt="Interface desktop">
-						      <img src="screenshot2.png" alt="Interface mobile"> #}
+      <img src="screenshot2.png" alt="Interface mobile"> #}
 
       {% for image in post.meta('screenshot') %}
         <img src="{{ image }}" />
       {% endfor %}
 
-
-      <hr />
+      <hr/>
       {# TODO #}
-      <a href="https://taskify-demo.vercel.app" class="btn">Voir la démo</a>
-      <a href="https://github.com/tonpseudo/taskify" class="btn">Voir le code</a>
+      <a href="https://taskify-demo.vercel.app" class="btn">
+        Voir la démo
+      </a>
+      <a href="https://github.com/tonpseudo/taskify" class="btn">
+        Voir le code
+      </a>
     </section>
 
     <section class="learnings">
-      <h2>Ce que j’ai appris</h2>
+      <h2>
+        Ce que j’ai appris
+      </h2>
       {{ post.learned }}
     </section>
 
