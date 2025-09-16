@@ -6,41 +6,17 @@
 
 {% block content %}
   {# Section Hero/Présentation #}
-      <a href="mailto:hello@myname.com" class="absolute px-4 py-2 font-bold text-white rounded-full z-1 bg-primary-800 top-4 badge right-4 hover:bg-primary-50 hover:text-primary-950">HELLO@MYNAME.COM</a>
+  <a href="mailto:hello@myname.com" class="fixed px-4 py-2 text-xs font-bold text-white rounded-full z-1 bg-primary-800 top-4 badge right-4 hover:bg-primary-50 hover:text-primary-950 sm:text-sm">
+    HELLO@MYNAME.COM
+  </a>
 
-  <section class="bg-no-repeat w-full  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center" style="background-image: url({{ theme_options.profile_photo }}); ">
-    <div class="absolute w-full h-full backdrop bg-black/25 "></div>
-
-    <div class="z-10 hero-content">
-
-        {# Sous-titre et titre principal #}
-        <h1 class="text-white font-feature-small-caps hero-subtitle ">
-          {{ site.description }}
-        </h1>
-        <h2 class="text-white hero-title">
-          {{ site.name }}
-        </h2>
-
-        {# Bouton d'action principal #}
-        <div class="mt-8 hero-actions">
-          <a href="/cv.pdf" class="btn btn-secondary" target="_blank">
-            Télécharger mon CV
-          </a>
-        </div>
-
-        {# btn scroll down #}
-        <a href="#content" class="absolute w-6 h-8 rounded-full bottom-3 " title="click to scroll">
-   SCROLL
-        </a>
-
-    </div>
-  </section>
+  {% include "./partial/hero.twig" %}
 
   <section id="content">
 
     <div class="container mx-auto">
 
-      <div class="grid grid-cols-1 gap-8 p-4 md:grid-cols-2 sm:p-16 ">
+      <div class="grid grid-cols-1 gap-8 p-4 mt-8 md:grid-cols-2 sm:p-16 ">
 
         <article class="about">
           {# Section À propos #}

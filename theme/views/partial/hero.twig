@@ -1,0 +1,27 @@
+<section class="bg-no-repeat w-full  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center">
+  <div class="absolute w-full h-full backdrop bg-black/25 "></div>
+
+  <div class="z-10 ">
+    <img src="{{ site.icon }}" alt="..." class="object-cover rounded-full w-[120px] m-auto mb-4" />
+    {# Sous-titre et titre principal #}
+    <h1 class="mb-8 text-2xl text-center text-white hero-title">
+      {{ site.name }}
+      🖖
+    </h1>
+    <p class="max-w-[16ch] font-semibold   text-6xl text-white text-center ">
+      {{ site.description }}
+    </p>
+
+
+
+    {# btn scroll down #}
+    <a href="#content" class="block text-center transition-colors hover:fill-white" title="click to scroll">
+
+      <svg class="w-10 h-10 mx-auto mt-12 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+          <path d="M16,30A14,14,0,1,1,30,16,14,14,0,0,1,16,30ZM16,4A12,12,0,1,0,28,16,12,12,0,0,0,16,4Z" />
+          <path d="M16,19.92a1,1,0,0,1-.76-1.65l5-5.84a1,1,0,0,1,1.52,1.3l-5,5.84A1,1,0,0,1,16,19.92Z" />
+          <path d="M16,19.92a1,1,0,0,1-.76-.35l-5-5.84a1,1,0,1,1,1.52-1.3l5,5.84A1,1,0,0,1,16,19.92Z" />
+      </svg>
+    </a>
+  </div>
+</section>

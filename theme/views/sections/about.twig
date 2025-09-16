@@ -17,9 +17,9 @@
         </div>
       {% endif %}
 
-      <div class="flex flex-row items-baseline gap-16">
+      <div class="flex flex-col items-baseline gap-16 sm:flex-row">
         {# Informations personnelles #}
-        <div class="pt-8 personal-info o-6">
+        <div class="w-full pt-8 personal-info o-6">
           <h3 class="info-title">
             Mes informations
           </h3>
@@ -75,7 +75,7 @@
             {% endif %}
 
             {% if theme_options.social_networks %}
-              <div class="pt-2 social-links o-6">
+              <div class="pt-2 mb-8 social-links o-6">
                 <div class="social-list">
                   {% for social in theme_options.social_networks %}
                     <a href="{{ social.url }}" class="flex gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
@@ -88,7 +88,9 @@
                 </div>
               </div>
             {% endif %}
-
+      <a href="/cv.pdf" class="btn btn-primary" target="_blank">
+        Télécharger mon CV
+      </a>
           </div>
         </div>
 
