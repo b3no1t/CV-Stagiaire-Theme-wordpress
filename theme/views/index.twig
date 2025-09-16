@@ -51,7 +51,7 @@
               Use cases
             </h2>
             {% if projects %}
-              <div class="grid grid-cols-1 gap-2 projects-grid ">
+              <div class="grid grid-cols-2 gap-2 mt-12 projects-grid">
                 {% for project in projects %}
                   {% include "./partial/card.twig" with {'project': project} %}
                 {% endfor %}
@@ -60,40 +60,14 @@
           </div>
         </section>
 
-
         {# EXP #}
-
         <article class="education o-6">
-          <h2 class="leading-none">
-            EXPÉRIENCE
-            <br>
-              PROFESSIONNELLE
-            </h2>
-            <div class="flex flex-col w-full gap-8 md:flex-row ">
-            {% for item in theme_options.experiences %}
-              <div class="card card-{{ loop.index }}">
-                <div class="text-sm opacity-50 date">
-                  {{ item.start_date }}
-                  /
-                  {{ item.end_date }}
-                </div>
-                <h3 class="company text-stone-600">
-                  {{ item.company_name }}
-                </h3>
-                <div class="company-role text-primary-600">
-                  {{ item.job_title }}
-                </div>
-              </div>
-            {% endfor %}
-            </div>
-          </article>
+          {# Section edu #}
+          {% include 'sections/education.twig' %}
+        </article>
 
-        {# <article class="experience"> #}
-        {# Section Experiences #}
-        {# {% include 'sections/experience.twig' %} #}
-        {# </article> #}
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  {% endblock %}
+{% endblock %}

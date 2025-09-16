@@ -1,0 +1,36 @@
+{#
+slider
+#}
+
+<h2 class="leading-none">
+  EXPÉRIENCE
+  <br>
+    PROFESSIONNELLE
+  </h2>
+  <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="flex flex-col gap-8 glide__slides md:flex-row">
+        {% for item in theme_options.experiences %}
+          <li class="glide__slide">
+            <a href="#" class="block p-4 border border-gray-300 rounded-md shadow-sm sm:p-6 min-w-2xs hover:shadow-md hover:scale-[1.02] transition-transform duration-200 ease-in-out">
+              <img src="{{ item.company_logo|resize(120) }}" alt="{{ item.thumbnail.alt }}" />
+              <div class=" card-{{ loop.index }}  ">
+                <div class="text-sm opacity-50 date">
+                  {{ item.start_date }}
+                  /
+                  {{ item.end_date }}
+                </div>
+                <h3 class="company text-stone-600">
+                  {{ item.company_name }}
+                </h3>
+                <div class="company-role text-primary-600">
+                  {{ item.job_title }}
+                </div>
+              </div>
+
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>

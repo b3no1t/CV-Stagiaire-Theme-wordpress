@@ -1,55 +1,59 @@
 {# CARD USE CASE #}
-  <div class="w-full p-4 border-b-2 card">
-    <div class="card-header">
+<div class="w-full p-4  card border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:scale-[1.02] transition-transform duration-200 ease-in-out">
+  <div class=" card-content">
+
+    <div class="flex items-center gap-1 md:gap-4">
+      <img src="{{ project.thumbnail.src|resize(60) }}" alt="{{ project.thumbnail.alt }}">
       <h4 class="project-title">
         {{ project.title }}
+        <span class="block text-sm font-normal tracking-normal text-gray-500">
+          {{ project.project_type }}
+        </span>
       </h4>
     </div>
-    <div class=" card-content">
-      {# ! Technologies utilisées #}
-      <div class="flex items-center gap-4">
-        <img src="{{ project.thumbnail.src|resize(80) }}" alt="{{ project.thumbnail.alt }}">
-          <h4>
-            {{ child.brand_name }}
-          </h4>
-        </div>
-        <div class="prose project-description line-clamp-3 text-pretty">
-          {{ project.description }}
-        </div>
-        <div class="flex items-baseline gap-4 o-4">
+
+      <div class="mt-2 tracking-normal prose project-description line-clamp-3">
+        {{ project.description }}
+      </div>
+
+      <div class="flex flex-col items-baseline gap-1 mt-2 font-mono text-sm text-gray-500 project-details">
+        {# ! Métadonnées du projet #}
+        {# Durée du projet #}
           {% if project.duration %}
-            <span class="project-duration">
-              <i class="fas fa-clock"></i>
-              {{ project.duration }}
+            <div class="project-duration"> <i class="fas fa-clock"></i>
+            {{ project.duration }}
+          </div>
+        {% endif %}
+
+        <div class="project-tech">
+          <i class="fas fa-code"></i>
+          {% for item in project.technologie %}
+            <span class="pl-1 tech-badge">
+              {{ item.name }}
+              ,
+            </span>
+          {% endfor %}
+        </div>
+        {# ! Métadonnées du projet #}
+        <div class="project-meta">
+          {% if project.team_size %}
+            <i class="fas fa-users"></i>
+            <span class="project-team">
+              {% if project.team_size == 1 %}
+                Projet solo
+              {% else %}
+                Équipe de
+                {{ project.team_size }}
+              {% endif %}
             </span>
           {% endif %}
-          <div class="project-tech">
-            {% for item in project.technologie %}
-              <span class="pl-1 tech-badge">
-                <i class="fas fa-code"></i>
-                {{ item.name }}
-              </span>
-            {% endfor %}
-          </div>
-          {# ! Métadonnées du projet #}
-          <div class="project-meta">
-            {% if project.team_size %}
-              <span class="project-team">
-                <i class="fas fa-users"></i>
-                {% if project.team_size == 1 %}
-                  Projet solo
-                {% else %}
-                  Équipe de
-                  {{ project.team_size }}
-                {% endif %}
-              </span>
-            {% endif %}
-          </div>
-        </div>
-        <div class="card-footer">
-          <a href="{{ project.link }}" class="mt-4 btn btn-primary">
-            plus d'info
-          </a>
         </div>
       </div>
+
+      <div class="mt-4">
+        <a href="{{ project.link }}" class=" btn btn-primary">
+          plus d'info
+        </a>
+      </div>
     </div>
+  </div>
