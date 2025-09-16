@@ -12,117 +12,116 @@
     <div class="o-6">
 
       {% if theme_options.about_text %}
-        <div class="prose-2xl about-text border-b-black">
+        <div class="prose-xl about-text ">
           {{ theme_options.about_text | raw }}
         </div>
       {% endif %}
 
-<div class="flex flex-row items-baseline gap-16">
-      {# Informations personnelles #}
-      <div class="pt-8 personal-info o-6">
-        <h3 class="info-title">
-         Mes informations
-        </h3>
-
-        <div class="text-lg info-list o-1">
-          {% if theme_options.age %}
-            <div class="info-item">
-              <span class="info-label">
-                Âge:
-              </span>
-              <span class="info-value">
-                {{ theme_options.age }}
-                ans
-              </span>
-            </div>
-          {% endif %}
-
-          {% if theme_options.location %}
-            <div class="info-item">
-              <span class="info-label">
-                Localisation:
-              </span>
-              <span class="info-value">
-                {{ theme_options.location }}
-              </span>
-            </div>
-          {% endif %}
-
-          {% if theme_options.email %}
-            <div class="info-item">
-              <span class="info-label">
-                Email:
-              </span>
-              <span class="info-value">
-                <a href="mailto:{{ theme_options.email }}">
-                  {{ theme_options.email }}
-                </a>
-              </span>
-            </div>
-          {% endif %}
-
-          {% if theme_options.phone %}
-            <div class="info-item">
-              <span class="info-label">
-                Téléphone:
-              </span>
-              <span class="info-value">
-                <a href="tel:{{ theme_options.phone }}">
-                  {{ theme_options.phone }}
-                </a>
-              </span>
-            </div>
-          {% endif %}
-
-          {% if theme_options.social_networks %}
-            <div class="social-links o-6">
-              <div class="social-list">
-                {% for social in theme_options.social_networks %}
-                  <a href="{{ social.url }}" class="flex gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
-                    <img src="{{ social.icon }}" class="w-8 aspect-square " alt="{{ social.platform }}" />
-                    <span>
-                      {{ social.platform }}
-                    </span>
-                  </a>
-                {% endfor %}
-              </div>
-            </div>
-          {% endif %}
-
-        </div>
-
-      </div>
-
-<div class="h-full separator"></div>
-
-      {# Liste des points forts #}
-      {% if theme_options.skills_categories %}
-        <div class="strengths-list 1">
-          <h3 class="pt-8 my-4 strengths-title text-blck">
-            Mes atouts
+      <div class="flex flex-row items-baseline gap-16">
+        {# Informations personnelles #}
+        <div class="pt-8 personal-info o-6">
+          <h3 class="info-title">
+            Mes informations
           </h3>
-          <ul class="text-gray-800 strengths-items o-4 ">
-            {% for strength in theme_options.skills_categories %}
-              <li>
-                <h4 class="mb-2 text-2xl">{{ strength.title }}</h4>
-             <ul class="flex gap-2">
-              {% for child in strength.competences %}
-                <li class="px-2 py-1 text-xs rounded-lg text-stone-400 border-stone-400 border-1 strength-item">
-                  {% if child.icon %}
-                    <i class="{{ child.icon }} text-primary-300"></i>
-                  {% endif %}
-                  <span>
-                    {{ child.name }}
-                  </span>
-                </li>
-                 </li>
-              {% endfor %}
-              </ul>
-            {% endfor %}
-          </ul>
+
+          <div class="text-lg info-list o-1">
+            {% if theme_options.age %}
+              <div class="info-item">
+                <span class="info-label">
+                  Âge:
+                </span>
+                <span class="info-value">
+                  {{ theme_options.age }}
+                  ans
+                </span>
+              </div>
+            {% endif %}
+
+            {% if theme_options.location %}
+              <div class="info-item">
+                <span class="info-label">
+                  Localisation:
+                </span>
+                <span class="info-value">
+                  {{ theme_options.location }}
+                </span>
+              </div>
+            {% endif %}
+
+            {% if theme_options.email %}
+              <div class="info-item">
+                <span class="info-label">
+                  Email:
+                </span>
+                <span class="info-value">
+                  <a href="mailto:{{ theme_options.email }}">
+                    {{ theme_options.email }}
+                  </a>
+                </span>
+              </div>
+            {% endif %}
+
+            {% if theme_options.phone %}
+              <div class="info-item">
+                <span class="info-label">
+                  Téléphone:
+                </span>
+                <span class="info-value">
+                  <a href="tel:{{ theme_options.phone }}">
+                    {{ theme_options.phone }}
+                  </a>
+                </span>
+              </div>
+            {% endif %}
+
+            {% if theme_options.social_networks %}
+              <div class="pt-2 social-links o-6">
+                <div class="social-list">
+                  {% for social in theme_options.social_networks %}
+                    <a href="{{ social.url }}" class="flex gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
+                      <img src="{{ social.icon }}" class="w-8 aspect-square " alt="{{ social.platform }}" />
+                      <span>
+                        {{ social.platform }}
+                      </span>
+                    </a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+
+          </div>
         </div>
-      {% endif %}
-</div>
+
+        {# Liste des points forts #}
+        {% if theme_options.skills_categories %}
+          <div class="strengths-list 1">
+            <h3 class="pt-8 my-4 strengths-title text-blck">
+              Mes atouts
+            </h3>
+            <ul class="text-gray-800 strengths-items o-4 ">
+              {% for strength in theme_options.skills_categories %}
+                <li>
+                  <h4 class="mb-2 text-xl">
+                    {{ strength.title }}
+                  </h4>
+                  <ul class="flex gap-2">
+                    {% for child in strength.competences %}
+                      <li class="px-2 py-1 text-[9px] rounded-lg text-stone-900 border-stone-400 border-1 strength-item">
+                        {% if child.icon %}
+                          <i class="{{ child.icon }}"></i>
+                        {% endif %}
+                        <span>
+                          {{ child.name }}
+                        </span>
+                      </li>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>

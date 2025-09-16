@@ -1,18 +1,18 @@
 {# CARD USE CASE #}
-<div class="w-full p-4  card border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:scale-[1.02] transition-transform duration-200 ease-in-out">
-  <div class=" card-content">
+<div class="w-full p-4  card rounded-lg  hover:scale-[1.02] transition-transform duration-200 ease-in-out bg-stone-100">
 
+  <div class=" card-content">
     <div class="flex items-center gap-1 md:gap-4">
       <img src="{{ project.thumbnail.src|resize(60) }}" alt="{{ project.thumbnail.alt }}">
-      <h4 class="project-title">
-        {{ project.title }}
-        <span class="block text-sm font-normal tracking-normal text-gray-500">
-          {{ project.project_type }}
-        </span>
-      </h4>
-    </div>
+        <h4 class="project-title">
+          {{ project.title }}
+          <span class="block text-sm font-normal tracking-normal text-gray-500">
+            {{ project.project_type }}
+          </span>
+        </h4>
+      </div>
 
-      <div class="mt-2 tracking-normal prose project-description line-clamp-3">
+      <div class="mt-2 text-sm line-clamp-3">
         {{ project.description }}
       </div>
 
@@ -28,9 +28,8 @@
         <div class="project-tech">
           <i class="fas fa-code"></i>
           {% for item in project.technologie %}
-            <span class="pl-1 tech-badge">
+            <span class="inline-block px-2 py-1 text-xs font-medium text-gray-800 rounded-full bg-gray-50 tech-badge">
               {{ item.name }}
-              ,
             </span>
           {% endfor %}
         </div>
@@ -56,4 +55,5 @@
         </a>
       </div>
     </div>
+
   </div>

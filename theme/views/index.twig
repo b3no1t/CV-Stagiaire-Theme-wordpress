@@ -6,68 +6,71 @@
 
 {% block content %}
   {# Section Hero/Présentation #}
+      <a href="mailto:hello@myname.com" class="absolute px-4 py-2 font-bold text-white rounded-full z-1 bg-primary-800 top-4 badge right-4 hover:bg-primary-50 hover:text-primary-950">HELLO@MYNAME.COM</a>
+
   <section class="bg-no-repeat w-full  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center" style="background-image: url({{ theme_options.profile_photo }}); ">
     <div class="absolute w-full h-full backdrop bg-black/25 "></div>
+
     <div class="z-10 hero-content">
-      <h1 class="text-white font-feature-small-caps hero-subtitle ">
-        {{ site.description }}
-      </h1>
-      <h2 class="text-white hero-title">
-        {{ site.name }}
-      </h2>
 
-      {# Bouton d'action principal #}
-      <div class="mt-8 hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          Me contacter
-        </a>
-        <a href="/cv.pdf" class="btn btn-secondary" target="_blank">
-          Télécharger mon CV
-        </a>
-      </div>
+        {# Sous-titre et titre principal #}
+        <h1 class="text-white font-feature-small-caps hero-subtitle ">
+          {{ site.description }}
+        </h1>
+        <h2 class="text-white hero-title">
+          {{ site.name }}
+        </h2>
 
-      {# btn scroll down #}
-      <a href="#content" class="absolute w-6 h-8 bg-blue-700 rounded-full bottom-3 " title="click to scroll">
-        <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11.2279 12.7721C11.4412 12.9853 11.7198 13.0914 11.9995 13.0914C12.2792 13.0914 12.5579 12.9853 12.7711 12.7721L23.6802 1.86298C24.1066 1.43752 24.1066 0.746282 23.6802 0.320827C23.2537 -0.104627 22.5635 -0.105619 22.138 0.320827L11.9995 10.4583L1.86198 0.319835C1.43653 -0.106612 0.745289 -0.106612 0.319835 0.319835C-0.106612 0.746281 -0.106612 1.43653 0.319835 1.86198L11.2279 12.7721Z" fill="#FEFEFE" />
-        </svg>
-      </a>
+        {# Bouton d'action principal #}
+        <div class="mt-8 hero-actions">
+          <a href="/cv.pdf" class="btn btn-secondary" target="_blank">
+            Télécharger mon CV
+          </a>
+        </div>
+
+        {# btn scroll down #}
+        <a href="#content" class="absolute w-6 h-8 rounded-full bottom-3 " title="click to scroll">
+   SCROLL
+        </a>
 
     </div>
   </section>
 
-  <section>
-    <div class="container mx-auto">
-      <div class="grid grid-cols-1 gap-8 p-4 v sm:p-16 md:grid-cols-2">
+  <section id="content">
 
-        <article class="about" id="content">
+    <div class="container mx-auto">
+
+      <div class="grid grid-cols-1 gap-8 p-4 md:grid-cols-2 sm:p-16 ">
+
+        <article class="about">
           {# Section À propos #}
           {% include 'sections/about.twig' %}
         </article>
 
-        <section class="projects-section" id="projects">
-          <div class="container">
-            <h2 class="section-title">
+        <div class="grid grid-flow-row grid-cols-1 gap-8 md:grid-cols-2">
+
+          <article class="education o-6">
+            {# Section edu #}
+            {% include 'sections/education.twig' %}
+          </article>
+
+          <section class="projects-section">
+            <h2 class="mb-12 section-title">
               Use cases
             </h2>
             {% if projects %}
-              <div class="grid grid-cols-2 gap-2 mt-12 projects-grid">
+              <div class="o-6">
                 {% for project in projects %}
                   {% include "./partial/card.twig" with {'project': project} %}
                 {% endfor %}
               </div>
             {% endif %}
-          </div>
-        </section>
+          </section>
 
-        {# EXP #}
-        <article class="education o-6">
-          {# Section edu #}
-          {% include 'sections/education.twig' %}
-        </article>
+        </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 {% endblock %}
