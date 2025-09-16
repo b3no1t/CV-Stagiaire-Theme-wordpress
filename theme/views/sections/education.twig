@@ -7,7 +7,7 @@ slider
   <br>
     PROFESSIONNELLE
   </h2>
-  <div class="glide">
+  {# <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="flex flex-col gap-8 glide__slides md:flex-row">
         {% for item in theme_options.experiences %}
@@ -33,4 +33,33 @@ slider
         {% endfor %}
       </ul>
     </div>
-  </div>
+  </div> #}
+
+
+<ol
+  class="relative space-y-8 before:absolute before:-ml-px before:h-full before:w-0.5 before:rounded-full before:bg-gray-200"
+>
+        {% for item in theme_options.experiences %}
+
+  <li class="relative -ms-1.5 flex items-start gap-4">
+
+    <span class="bg-blue-600 rounded-full size-3 shrink-0"></span>
+
+    <div class="-mt-2">
+      <time class="font-medium text-gray-700 text-xs/none">
+               {{ item.start_date }}
+                  /
+                  {{ item.end_date }}
+    </time>
+
+      <h3 class="text-lg font-bold text-gray-900">{{ item.company_name }}</h3>
+
+      <p class="mt-0.5 text-sm text-gray-700">
+         {{ item.job_title }}
+      </p>
+    </div>
+  </li>
+        {% endfor %}
+
+
+</ol>
