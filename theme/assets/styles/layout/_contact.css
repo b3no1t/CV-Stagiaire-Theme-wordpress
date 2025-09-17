@@ -1,12 +1,19 @@
 /* contact form from Contact7 plugins */
+@layer base{
 
-.wpcf7-form{
-  @apply mx-auto mb-8 text-4xl border max-w-1/2;
+  .wpcf7-form{
+    @apply mx-auto mb-8 text-base max-w-1/2;
+  }
+  .wpcf7-form  > * + * { margin-top: 1.25rem; }
+
+
+  .wpcf7-text, textarea{
+    @apply w-full text-lg border rounded-lg;
+  }
+
+  .wpcf7-submit{
+    /* TODO BTN PRIMARY */
+  }
+
 }
-
-.wpcf7-text{
-  @apply border w-full
-}
-
-
 
