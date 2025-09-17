@@ -1,0 +1,12 @@
+/* contact form from Contact7 plugins */
+
+.wpcf7-form{
+  @apply mx-auto mb-8 text-4xl border max-w-1/2;
+}
+
+.wpcf7-text{
+  @apply border w-full
+}
+
+
+
