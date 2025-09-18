@@ -19,7 +19,7 @@
 
       <div class="flex flex-col items-baseline gap-16 lg:flex-row">
         {# Informations personnelles #}
-        <div class="w-full pt-8 personal-info o-6">
+        <div class="pt-8 personal-info o-6">
           <h3 class="info-title">
             Mes informations
           </h3>
@@ -113,7 +113,7 @@
                         {% if child.icon %}
                           <i class="{{ child.icon }}"></i>
                         {% endif %}
-                        <span>
+                        <span class="font-mono">
                           {{ child.name }}
                         </span>
                       </li>
