@@ -72,6 +72,7 @@ Voici une liste non-exhaustive des  directives :
 aller plus loin dans la documentation officielle : [https://developers.google.com/search/docs/advanced/robots/intro?hl=fr](https://developers.google.com/search/docs/advanced/robots/intro?hl=fr)
 Un article sur le sujet : [https://www.robotstxt.org/robotstxt.html](https://www.robotstxt.org/robotstxt.html)
 Un article sur les robots et WordPress https://wpmarmite.com/robots-txt-wordpress/
+Un article de la doc officiellle de WordPress : https://wordpress.org/documentation/article/search-engine-optimization/
 
 
-#### Happy coding 🤖
+#### *Happy coding* 🤖
