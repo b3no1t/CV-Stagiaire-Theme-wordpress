@@ -30,6 +30,17 @@
 @import './layout/_contact.css';
 
 /**
+ * 🌗 CONFIGURATION DU MODE SOMBRE (dark mode)
+ * Nouvelle syntaxe pour définir le mode sombre en Tailwind 4
+ * Utilise une variante personnalisée au lieu de 'media' ou 'class'
+ * Cette ligne définit une variante personnalisée 'dark' pour Tailwind CSS 4.
+ * Elle permet d'utiliser la syntaxe 'dark:' dans vos classes, qui s'appliquera
+ * aux éléments avec la classe .dark ou aux enfants d'éléments avec cette classe.
+ * Exemple: class="bg-white dark:bg-black"
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/**
  * 🔌 CONFIGURATION DES PLUGINS (Alternative à tailwind.config.js)
  * Les plugins sont maintenant chargés via @plugin dans le CSS
  * Plus de gestion JavaScript nécessaire

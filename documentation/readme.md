@@ -36,7 +36,7 @@ Apprendre l'**extraction de classes** Tailwindcss4.
 ### importer une webfont
 
 - exemple avec SFProDisplay
-- https://fonts.cdnfonts.com/css/sf-pro-display
+- https://www.cdnfonts.com/sf-pro-display.font
 - importer la webfont dans la css
 
 ### faire le single post projet

@@ -1,0 +1,37 @@
+{#  Toggler
+  Simple Toggle Dark Functionality
+  todo : save mode in local storage
+
+#}
+<div class="w-20 bg-gray-500 cursor-pointer rounded-3xl toggler dark:bg-green-500">
+  <div class="w-10 h-10 transition-transform scale-75 bg-white rounded-3xl dark:bg-black"></div>
+</div>
+{# End Of Toggler #}
+<script>
+    // Ce flag booléen suit l'état actuel (vrai = mode clair, faux = mode sombre)
+    let flag = true;
+    const toggler = document.querySelector('.toggler');
+
+    /**
+    * Fonction d'activation/désactivation du mode sombre
+    * Cette fonction configure un écouteur d'événements pour l'élément d'activation/désactivation
+    * et gère la logique de basculement entre les modes sombre et clair.
+    */
+    const toggleDark = () => {
+      toggler.addEventListener('click', () => {
+        const html = document.documentElement;
+        toggler.children[0].classList.toggle('translate-x-10');
+        if (flag) {
+          html.classList.add('dark');
+        } else {
+          html.classList.remove('dark');
+        }
+        // Inverser l'indicateur pour le prochain clic
+        flag = !flag;
+
+        // À FAIRE : enregistrer la préférence de mode actuelle dans localStorage
+        // afin de conserver le choix de l'utilisateur entre les chargements de page
+      });
+    };
+    toggleDark();
+  </script>

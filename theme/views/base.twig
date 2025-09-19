@@ -11,33 +11,38 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="{{ site.theme.link }}/manifest.json" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <meta name="apple-mobile-web-app-title" content="Curriculum-vitae" />
     <meta name="application-name" content="Curriculum-vitae" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#f1f1f1" />
     <meta name="referrer" content="origin" />
     {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css"> #}
-
     <title>
           {{ site.name }} | {{ site.description }}
     </title>
+    {# used to hide elements until Alpine.js is loaded
     <style>
         [x-cloak] { display: none; }
-    </style>
+    </style> #}
     {# Styles et Scripts de WP #}
     {{ function('wp_head') }}
+  </head>
     <body class="{{ body_class }}" data-template="base.twig">
 
-      <header class="site-header">{# {% include 'header.twig' %} #}
+      <header class="site__header">
+        {% block header %}
+          {% include './partial/header.twig' %}
+        {% endblock %}
       </header>
 
-      <main class=" site-main">
+      <main class=" site__main">
         {% block content %}
           Sorry, no content
         {% endblock %}
       </main>
 
-      <footer class="mt-8 site-footer">
+      <footer class="mt-8 site__footer">
         {% block footer %}
           {% include 'footer.twig' %}
           {{ function('wp_footer') }}
