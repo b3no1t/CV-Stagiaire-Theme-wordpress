@@ -16,11 +16,8 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#f1f1f1" />
     <meta name="referrer" content="origin" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css">
+    {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css"> #}
 
-    {% if  is_home == tr %}
-      toto
-    {% endif %}
     <title>
           {{ site.name }} | {{ site.description }}
     </title>
@@ -40,7 +37,7 @@
         {% endblock %}
       </main>
 
-      <footer class="site-footer">
+      <footer class="mt-8 site-footer">
         {% block footer %}
           {% include 'footer.twig' %}
           {{ function('wp_footer') }}

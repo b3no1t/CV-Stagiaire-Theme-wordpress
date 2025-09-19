@@ -20,6 +20,7 @@ $context   = Timber::context();
 // $context['posts'] = Timber::get_posts();
 // $context['posts']   = new Timber\PostQuery();
 
+
 // query toutes les pages options
 // Récupération des options ACF
 // get_fields('option') récupère TOUS les champs des pages d'options

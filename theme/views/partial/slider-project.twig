@@ -4,13 +4,15 @@
     <ul class="glide__slides">
       {% for image in post.meta('screenshot') %}
         <li class="glide__slide">
-          <img src="{{ image }}" />
+          <picture>
+            <source srcset="{{ image|towebp }}" width="{{ image.width }}" type="image/webp" />
+            <source srcset="{{ image|tojpg }}" type="image/jpeg" />
+            <img src="{{ image|tojpg }}" alt="{{ post.title }}" />
+          </picture>
         </li>
       {% endfor %}
     </ul>
-
   </div>
-
   <div class="glide__arrows" data-glide-el="controls">
     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
       &#9664;
@@ -19,22 +21,12 @@
       ">&#9654;
     </button>
   </div>
-
-</div>
-
-<div class="btn-group">
-  <a href="https://taskify-demo.vercel.app" class="btn btn-primary">
-    Voir la démo
-  </a>
-  <a href="https://github.com/tonpseudo/taskify" class="btn btn-primary">
-    Voir le code
-  </a>
 </div>
 
 {% block footer %}
   {# Scripts pour le slider #}
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
   <script>
-  new Glide('.glide').mount()
-</script>
+   new Glide('.glide').mount()
+  </script>
 {% endblock %}

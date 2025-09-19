@@ -17,11 +17,11 @@
 
 {% block content %}
   {% include "./partial/header-single-project.twig" %}
-  <div class="grid grid-cols-1 wp-container md:grid-cols-2">
+  <div class="grid grid-cols-1 gap-6 wp-container lg:grid-cols-2">
 
     <article class="o-8">
 
-      <section class="hero">
+      <section class="pb-8 mb-4 border-b border-gray-300 hero">
         <h1 class="flex items-center gap-4">
           <img src="{{ post.thumbnail.src|resize(80) }}" alt="{{ post.thumbnail.alt }}" />
           {{ post.title }}
@@ -39,36 +39,37 @@
         </div>
       </section>
 
-      <section class="overview o-2">
+      <section class="pb-8 mb-4 border-b border-gray-300 overview o-2">
         <h2>
           Description du projet
         </h2>
-        <p>
-          {{ post.description }}
-        </p>
-      </section>
-
-      <section class="learnings o-2">
-        <h2>
-          Ce que j’ai appris
-        </h2>
-        <div class="prose">
-          {{ post.learned }}
+        <div class="text-lg leading-relaxed prose">
+          {{ post.description|raw }}
         </div>
       </section>
 
+      <section class="pb-8 mb-4 border-b border-gray-300 learnings o-2">
+        <h2>
+          Ce que j'ai acquis
+        </h2>
+        <div class="text-lg leading-relaxed prose">
+          {{ post.learned }}
+        </div>
+      </section>
+      <div class=" btn-group">
+        <a href="https://taskify-demo.vercel.app" class="btn btn-primary">
+          SITE
+        </a>
+        <a href="https://github.com/tonpseudo/taskify" class="btn btn-primary">
+          GITHUB
+        </a>
+      </div>
     </article>
 
-    <aside>
+    <aside class="my-16 lg:my-0">
       <section class="gallery">
-
-        <h2>
-          Gallerie
-        </h2>
-
         {# Slider d'images avec Glide.js #}
         {% include "./partial/slider-project.twig" %}
-
       </section>
     </aside>
   </div>
