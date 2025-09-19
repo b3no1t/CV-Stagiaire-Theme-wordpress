@@ -7,7 +7,7 @@
   Faciliter la navigation (retour au CV, liens utiles).
   Créer un impact visuel et professionnel.
 
-  c''est ton CV en action. Elle doit raconter une histoire : le problème → ta solution → ce que tu as appris → ce que tu proposes.
+  Ton CV en action. Elle doit raconter une histoire : le problème → ta solution → ce que tu as appris → ce que tu proposes.
 
   En tant que junior, l'accent mis sur ton apprentissage et ta réflexion vaut plus que la perfection du projet. Sois honnête, clair, et montre ta passion !
 
@@ -16,101 +16,60 @@
 {% extends 'base.twig' %}
 
 {% block content %}
+  {% include "./partial/header-single-project.twig" %}
+  <div class="grid grid-cols-1 wp-container md:grid-cols-2">
 
-  <article class="container mx-auto">
+    <article class="o-8">
 
-    <header class="flex justify-between w-full mt-4 navigation">
-      <h3>
-        {{ site.name }}
-        CV
-      </h3>
-      <a href="{{ site.link }}" class="btn btn-primary">
-        ← Retour au portfolio
-      </a>
-    </header>
+      <section class="hero">
+        <h1 class="flex items-center gap-4">
+          <img src="{{ post.thumbnail.src|resize(80) }}" alt="{{ post.thumbnail.alt }}" />
+          {{ post.title }}
+        </h1>
+        <h2>
+          Adobe Campaign Classic developer
+        </h2>
+        <div class="project-tech">
+          {% for item in post.technologie %}
+            <span class="pl-1e">
+              <i class="fas fa-code"></i>
+              {{ item.name }}
+            </span>
+          {% endfor %}
+        </div>
+      </section>
 
-    <section class="hero">
-      <h1>
-        {{ post.title }}
-      </h1>
-      <p>
-        Gestionnaire de tâches collaboratif — Projet personnel
-      </p>
-      <img src="{{ post.thumbnail.src|resize(80) }}" alt="{{ post.thumbnail.alt }}" />
-      <div class="project-tech">
-        {% for item in post.technologie %}
-          <span class="pl-1 tech-badge">
-            <i class="fas fa-code"></i>
-            {{ item.name }}
-          </span>
-        {% endfor %}
-      </div>
-      <p>
-        Posted by
-        {{ post.author.name }}
-        <span>
-          &bull;
-        </span>
-        <time datetime="{{ post.date('Y-m-d H:i:s') }}">
-          {{ post.date }}
-        </time>
-      </p>
-    </section>
+      <section class="overview o-2">
+        <h2>
+          Description du projet
+        </h2>
+        <p>
+          {{ post.description }}
+        </p>
+      </section>
 
-    <section class="overview">
-      <h2>
-        À propos
-      </h2>
-      <p>
-        {{ post.description }}
-      </p>
-    </section>
+      <section class="learnings o-2">
+        <h2>
+          Ce que j’ai appris
+        </h2>
+        <div class="prose">
+          {{ post.learned }}
+        </div>
+      </section>
 
-    <section class="tech-stack">
-      {# TODO #}
-      <h2>
-        Technologies utilisées
-      </h2>
-      <ul>
-        <li>
-          Frontend : React, TailwindCSS
-        </li>
-        <li>
-          Backend : SQL
-        </li>
-        <li>
-          Outils : Figma, Git, Composer
-        </li>
-      </ul>
-    </section>
+    </article>
 
-    <section class="gallery">
-      <h2>
-        Démonstration
-      </h2>
-      {# <img src="screenshot1.png" alt="Interface desktop">
-      <img src="screenshot2.png" alt="Interface mobile"> #}
+    <aside>
+      <section class="gallery">
 
-      {% for image in post.meta('screenshot') %}
-        <img src="{{ image }}" />
-      {% endfor %}
+        <h2>
+          Gallerie
+        </h2>
 
-      <hr/>
-      {# TODO #}
-      <a href="https://taskify-demo.vercel.app" class="btn">
-        Voir la démo
-      </a>
-      <a href="https://github.com/tonpseudo/taskify" class="btn">
-        Voir le code
-      </a>
-    </section>
+        {# Slider d'images avec Glide.js #}
+        {% include "./partial/slider-project.twig" %}
 
-    <section class="learnings">
-      <h2>
-        Ce que j’ai appris
-      </h2>
-      {{ post.learned }}
-    </section>
-
-  </article>
+      </section>
+    </aside>
+  </div>
 {% endblock %}

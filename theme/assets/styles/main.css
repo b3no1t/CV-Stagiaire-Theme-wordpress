@@ -35,6 +35,15 @@
  * Plus de gestion JavaScript nécessaire
  */
 
+
+
+
+/**
+ * ⚙️ CONFIGURATION SPÉCIFIQUE GLIDE JS
+ * Styles nécessaires pour l'intégrationglide jsr optimale
+ */
+@import './components/glide.core.min.css';
+
 /**
  * ⚙️ CONFIGURATION SPÉCIFIQUE WORDPRESS
  * Styles nécessaires pour l'intégration WordPress/Timber optimale
@@ -83,12 +92,12 @@ body.admin-bar .fixed-top {
 
 /**
  * 📱 RESPONSIVE DESIGN AVANCÉ
- * Utilise les breakpoints personnalisés définis dans theme.css
+ ** Utilise les breakpoints personnalisés définis dans theme.css
  */
 
 /* Container responsive personnalisé pour WordPress */
 .wp-container {
-  width: 100%;
+  min-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: --spacing(4);

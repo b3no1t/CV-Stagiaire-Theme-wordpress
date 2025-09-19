@@ -4,7 +4,6 @@
     <meta charset="{{ site.charset }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="pingback" href="{{ site.pingback_url }}" />
-
     <meta name="description" content="{{ site.description }}" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -18,17 +17,18 @@
     <meta name="theme-color" content="#f1f1f1" />
     <meta name="referrer" content="origin" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css">
-    <!-- Required Core Stylesheet -->
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
 
-    <!-- Optional Theme Stylesheet -->
-    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
-
+    {% if  is_home == tr %}
+      toto
+    {% endif %}
+    <title>
+          {{ site.name }} | {{ site.description }}
+    </title>
     <style>
         [x-cloak] { display: none; }
     </style>
+    {# Styles et Scripts de WP #}
     {{ function('wp_head') }}
-
     <body class="{{ body_class }}" data-template="base.twig">
 
       <header class="site-header">{# {% include 'header.twig' %} #}
@@ -36,9 +36,6 @@
 
       <main class=" site-main">
         {% block content %}
-          Sorry, no content
-        {% endblock %}
-        {% block contact %}
           Sorry, no content
         {% endblock %}
       </main>

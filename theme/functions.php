@@ -170,8 +170,8 @@ class Timberland extends Timber\Site
                         'in_footer' => $in_footer,
                     )
                 );
-                // Charge les polices Google
-                wp_enqueue_style('prefix-editor-font', '//fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+                // Charge la polices SF PRO apple
+                wp_enqueue_style('prefix-editor-font', 'https://fonts.cdnfonts.com/css/sf-pro-display=swap');
                 // Charge les styles de l'éditeur
                 $editor_css_file = 'theme/assets/styles/editor-style.css';
                 add_editor_style($dist_uri . '/' . $manifest[$editor_css_file]['file']);
@@ -345,15 +345,10 @@ add_action('admin_notices', 'display_cv_validation_errors');
 
 /**
 
-/**
+/*
  * Lazy loading pour les images
+ * par défaut dans WP 5.5+
  */
-function add_lazy_loading($content) {
-    // Ajouter loading="lazy" à toutes les images
-    $content = str_replace('<img', '<img loading="lazy"', $content);
-    return $content;
-}
-add_filter('the_content', 'add_lazy_loading');
 
 
 /**
