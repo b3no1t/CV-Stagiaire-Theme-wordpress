@@ -1,29 +1,33 @@
 {#
   ! Header Partial
-  minimal header with email link and toggle mode button
+  minimal header with only email link and toggle mode button
   to be included in base.twig
+  todo: obsfucate email address to avoid spam
 #}
 {% block header %}
-  {# Bouton retour au CV si dans une catégorie 'projects' #}
- {%  include './partial/header-single-project.twig' %}
-  {# Badge fixe en haut à droite #}
-  <div class="fixed flex items-center gap-4 z-1 top-4 badge right-4">
-    <a href="mailto:hello@myname.com" class="px-4 py-3 text-xs font-bold text-white rounded-full z-1 bg-primary-800 hover:bg-primary-50 hover:text-primary-950 sm:text-sm">
-      HELLO@MYNAME.COM
-    </a>
-    {# Toggle mode clair/sombre #}
-    {% include './partial/toggle-mode.twig' %}
-    {% if 'projects' in post.terms('category') %}
-      <div class="z-10 project-category">
-        <a href="{{ site.link }}" class="flex flex-row items-center justify-between text-lg text-black border border-black rounded-full btn hover:border-2 " aria-label="Retour au CV">
-          <span class="text-2xl ">
-            &#8617;
-          </span>
-          <h6>
-            Retour au CV
-          </h6>
-        </a>
-      </div>
-    {% endif %}
+<div class="fixed flex justify-between gap-4 rounded-full left-4 z-1 top-4 sm:top-8 sm:right-8 sm:left-8 right-4 ">
+    <p class="text-base text-light text-primary-700 dark:text-primary-100">
+    {{ post.author }} |
+    a developer based in Bruxelles, Belgium.
+    </p>
+    <div class="flex items-center gap-4">
+      <a href="mailto:hello@myname.com" class="self-start px-4 py-3 text-xs font-bold text-white rounded-full z-1 bg-primary-800 hover:bg-primary-50 hover:text-primary-950 sm:text-sm" aria-label="Envoyer un email">
+        HELLO@MYNAME.COM
+      </a>
+      {# Toggle mode clair/sombre #}
+      {% include './partial/toggle-mode.twig' %}
+      {% if 'projects' in post.terms('category') %}
+        <div class="z-10 project-category">
+          <a href="{{ site.link }}" class="flex flex-row items-center justify-between text-lg text-black border border-black rounded-full btn hover:border-2 " aria-label="Retour au CV">
+            <span class="text-2xl ">
+              &#8617;
+            </span>
+            <h6>
+              Retour au CV
+            </h6>
+          </a>
+        </div>
+      {% endif %}
+    </div>
   </div>
 {% endblock %}

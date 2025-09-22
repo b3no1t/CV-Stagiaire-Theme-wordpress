@@ -1,27 +1,27 @@
 <!doctype html>
 <html {{ site.language_attributes }}>
   <head>
-    <meta charset="{{ site.charset }}" />
+    <meta charset="{{ site.charset }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="pingback" href="{{ site.pingback_url }}" />
-    <meta name="description" content="{{ site.description }}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="194x194" href="/favicon-194x194.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="{{ site.theme.link }}/manifest.json" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <meta name="apple-mobile-web-app-title" content="Curriculum-vitae" />
-    <meta name="application-name" content="Curriculum-vitae" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#f1f1f1" />
-    <meta name="referrer" content="origin" />
+    <link rel="pingback" href="{{ site.pingback_url }}">
+    <meta name="description" content="{{ site.description }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="194x194" href="/favicon-194x194.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="{{ site.theme.link }}/manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <meta name="apple-mobile-web-app-title" content="Curriculum-vitae">
+    <meta name="application-name" content="Curriculum-vitae">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#f1f1f1">
+    <meta name="referrer" content="origin">
     {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css"> #}
     <title>
           {{ site.name }} | {{ site.description }}
     </title>
-    {# used to hide elements until Alpine.js is loaded
+    {# used to hide elements until Alpine.js is loaded, to avoid Fouc
     <style>
         [x-cloak] { display: none; }
     </style> #}
@@ -30,7 +30,7 @@
   </head>
     <body class="{{ body_class }}" data-template="base.twig">
 
-      <header class="site__header">
+      <header class=" site__header wp-container">
         {% block header %}
           {% include './partial/header.twig' %}
         {% endblock %}
