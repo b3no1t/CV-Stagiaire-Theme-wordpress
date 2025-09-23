@@ -49,8 +49,8 @@
    * Configuration des polices avec fallbacks système optimisés
    * Support des polices variables et font-feature-settings
    */
-  --font-family-heading: "dejavu-display", ui-sans-serif, system-ui, sans-serif;
-  --font-family-body: "dejavu-normal", ui-sans-serif, system-ui, sans-serif;
+  --font-family-heading: "SFProDisplay-Black", ui-sans-serif, system-ui, sans-serif;
+  --font-family-body: "SFProDisplay-Regular", ui-sans-serif, system-ui, sans-serif;
   --font-family-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
 
   /* Échelle typographique responsive avec clamp() */

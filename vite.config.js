@@ -22,6 +22,7 @@ export default defineConfig(({ mode }) => {
       https: false,
       hmr: {
         host: 'localhost',
+       overlay: true
       }
     },
     build: {

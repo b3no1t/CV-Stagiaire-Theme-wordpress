@@ -6,20 +6,16 @@
         <li class="glide__slide">
           <picture>
             <source srcset="{{ image|towebp }}" width="{{ image.width }}" type="image/webp" />
-            <source srcset="{{ image|tojpg }}" type="image/jpeg" />
-            <img src="{{ image|tojpg }}" alt="{{ post.title }}" />
+            <source srcset="{{ image|tojpg }}" width="{{ image.width }}" type="image/jpeg" />
+            <img src="{{ image|tojpg }}" width="{{ image.width }}" alt="{{ post.title }}" />
           </picture>
         </li>
       {% endfor %}
     </ul>
   </div>
   <div class="glide__arrows" data-glide-el="controls">
-    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-      &#9664;
-      </button>
-    <button class=" glide__arrow glide__arrow--right" data-glide-dir=">
-      ">&#9654;
-    </button>
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<-">&#9664;</button>
+    <button class=" glide__arrow glide__arrow--right" data-glide-dir="->">&#9654;</button>
   </div>
 </div>
 

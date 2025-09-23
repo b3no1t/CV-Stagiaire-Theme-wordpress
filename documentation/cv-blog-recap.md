@@ -2,6 +2,10 @@
 
 > Stack: WordPress, Composer, Timber (Twig), ACF, Tailwind CSS, WAMP
 
+> Courte introduction à **Tailwindcss4** et prise en main de **Glide JS** pour le slider.
+On va utiliser Tailwindcss pour le style et le mode **dark/light** et utiliser une **webfont** (SFProDisplay).
+Apprendre l'**extraction de classes** Tailwindcss4.
+
 ## 1. Introduction au Développement d'un Portfolio WordPress Moderne
 
 - Vue d'ensemble de la structure du thème et de son organisation
@@ -16,16 +20,26 @@
   - Outils et technologies de projet
   - Champs pour la chronologie des expériences
 
-## 3. Développement Frontend avec CSS et Tailwind
+## 3. Développement Frontend avec CSS custom et Tailwindcss4
+
+> ! depuis la version 4, la config de TWCSS se fait en CSS.
+> Avant la version 4, on utilisait un JS (*tailwindcss.config.js*) pour generer le theme css dans TWCSS.
 
 - Variables CSS et **thématisation** (`theme/assets/styles/theme.css`)
 - Systèmes typographiques (`theme/assets/styles/base/typography.css`)
-- Principes de design responsive avec tailwindcss
-- Utilisation des utilitaires Tailwind pour la mise en page et le style
+- Principes de design responsive avec tailwindcss (https://tailwindcss.com/docs/responsive-design)
+- Utilisation des class utilitaires Tailwind.(https://tailwindcss.com/docs/styling-with-utility-classes)
+
+### importer une webfont
+
+- exemple avec SFProDisplay
+- https://www.cdnfonts.com/sf-pro-display.font
+- importer la webfont dans la css
 
 ## 4. Templates Twig pour WordPress
 
 - Hiérarchie des templates dans le thème
+  - Hiérarchie wordpress templates initial
 - Aperçu des templates principaux :
   - `index.twig` - La page d'accueil/mise en page du CV
   - `single-project.twig` - Page de présentation de projet
@@ -76,4 +90,7 @@ Le thème un système de portfolio bien structuré avec des sections pour affich
 > Un CV / Blog de dév ne dois pas etre obligatoirement *'design'* l'employeur lira le code source afin de connaitre votre agilité à coder et commenter proprement. Mettre l'importance sur votre qualité de code alors que le design, devrait faire ressentir (look n feel) le sérieux et l'organisation de l'information.
 > Ce thème est conçu principalement pour un CV, mais il peut être étendu pour inclure des fonctionnalités de blog si nécessaire.
 
-happy coding ! :)
+
+Pull request github repo and search `todo` word in code.
+
+happy 🦄 coding !  🚀

@@ -1,11 +1,11 @@
-/* theme/assets/styles/theme.css */
+/* vars in theme/assets/styles/theme.css */
 
 /**
  * Variables CSS personnalisées pour une gestion centralisée
  * Facilite la maintenance et permet des modifications globales rapides
  */
 :root {
-  --font-heading: 'SF Pro Display', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'SFProDisplay-Black', ui-sans-serif, system-ui, sans-serif;
   --font-body:  ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
 

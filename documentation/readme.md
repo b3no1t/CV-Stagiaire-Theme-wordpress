@@ -71,15 +71,11 @@ Apprendre l'**extraction de classes** Tailwindcss4.
 
 ### Récapitulatif des outils et des liens utiles
 
-- WordPress
-- ACF Pro
-- Timber/Twig
 - Tailwindcss4
 - Glide JS
 - SFProDisplay webfont
 
 ## les composants.
-
 
 ![homepage](./homepage.png)
 

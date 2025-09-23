@@ -1,5 +1,5 @@
 import typography from '@tailwindcss/typography'
-
+// ! DEPRECATED IN TWCSS4
 export default {
   content: [
     './theme/views/**/*.twig',
