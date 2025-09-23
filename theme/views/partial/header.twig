@@ -16,7 +16,9 @@
       </a>
       {# Toggle mode clair/sombre #}
       {% include './partial/toggle-mode.twig' %}
+
       {% if 'projects' in post.terms('category') %}
+
         <div class="z-10 project-category">
           <a href="{{ site.link }}" class="flex flex-row items-center justify-between text-lg text-black border border-black rounded-full btn hover:border-2 " aria-label="Retour au CV">
             <span class="text-2xl ">

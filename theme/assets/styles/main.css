@@ -224,6 +224,9 @@ body.admin-bar .fixed-top {
 
 @layer base {
   strong, b {
-    @apply text-black;
+    @apply text-black dark:text-primary-50;
+  }
+  .site__icon{
+    @apply object-cover rounded-full w-[120px] m-auto mb-4 ;
   }
 }

@@ -2,17 +2,17 @@
   Section À propos
   Présentation personnelle du développeur
 #}
-<section class="about-section" id="about">
+<section class="about-section " id="about">
   <div class="container o-8">
 
-    <h2 class="section-title">
+    <h2 class="section-title dark:text-primary-50">
       À propos de moi
     </h2>
 
     <div class="o-6">
 
       {% if theme_options.about_text %}
-        <div class="prose-xl about-text ">
+        <div class="prose-xl about-text dark:text-primary-50">
           {{ theme_options.about_text | raw }}
         </div>
       {% endif %}
@@ -110,7 +110,19 @@
 
                   <ul class="flex flex-wrap gap-2">
                     {% for child in strength.competences %}
-                      <li class="relative overflow-hidden px-2 py-1 text-[9px] rounded-lg   strength__item inline-flex gap-1 items-center {% if child.level >= 80 %} bg-primary-800 text-white {% elseif child.level >= 60 %}bg-primary-600 text-white {% elseif child.level >= 40 %}bg-primary-400 text-white {% else %}bg-primary-100 text-primary-900{% endif %}">
+                      <li class="relative overflow-hidden px-2 py-1 text-[9px] rounded-lg   strength__item inline-flex gap-1 items-center
+
+
+                      {#
+                      todo
+                      {% if child.level >= 80 %} bg-primary-{{child.level * 10}} text-white #}
+                      {% if child.level >= 80 %} bg-primary-950 text-white
+                      {% elseif child.level >= 60 %}bg-primary-600 text-white
+                      {% elseif child.level >= 40 %}bg-primary-400 text-white
+                      {% else %}bg-primary-100 text-primary-900{% endif %}">
+
+
+
                         {% if child.icon %}
                           <i class="{{ child.icon }}"></i>
                         {% endif %}

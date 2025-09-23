@@ -11,13 +11,16 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="{{ site.theme.link }}/manifest.json">
+      {# icon dark / light #}
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
     <meta name="apple-mobile-web-app-title" content="Curriculum-vitae">
     <meta name="application-name" content="Curriculum-vitae">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#f1f1f1">
     <meta name="referrer" content="origin">
-    {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css"> #}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css">
     <title>
           {{ site.name }} | {{ site.description }}
     </title>
@@ -28,7 +31,7 @@
     {# Styles et Scripts de WP #}
     {{ function('wp_head') }}
   </head>
-    <body class="{{ body_class }}" data-template="base.twig">
+    <body class="{{ body_class }} dark:bg-black" data-template="base.twig">
 
       <header class=" site__header wp-container">
         {% block header %}
