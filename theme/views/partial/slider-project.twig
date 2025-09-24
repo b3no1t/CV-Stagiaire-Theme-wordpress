@@ -18,11 +18,11 @@
     <button class=" glide__arrow glide__arrow--right" data-glide-dir="->">&#9654;</button>
   </div>
 </div>
-
+{# TODO  trouver dans la doc de glideJs comment ajouter la pagination du slider ou carrousel.#}
 {% block footer %}
   {# Scripts pour le slider #}
   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
   <script>
-   new Glide('.glide').mount()
+   new Glide('.glide').mount();
   </script>
 {% endblock %}

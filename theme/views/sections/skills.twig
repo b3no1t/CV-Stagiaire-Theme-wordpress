@@ -1,7 +1,7 @@
 {#
   Section Compétences
   Affichage des compétences techniques avec barres de progression
-  ! stand-by code used in about.twig
+  ! stand-by code use  about.twig instead
 #}
 <section class="skills-section" id="skills">
   <div class="container">
@@ -26,7 +26,7 @@
               {% if category.skills %}
                 <div class="skills-list">
 
-                {% for skill in category.skills %}
+                  {% for skill in category.skills %}
 
                     <div class="skill-item" data-skill-level="{{ skill.level }}">
                       <div class="skill-header">
@@ -55,7 +55,6 @@
       </div>
     </div>
     {# {% endif %} #}
-    {# TODO Custom Fields Section des outils et technologies  #}
     {% if theme_options.tools %}
       <div class="tools-section">
         <h3 class="tools-title">
@@ -63,9 +62,9 @@
         </h3>
         <div class="tools-grid">
 
-        {% for tool in theme_options.tools %}
+          {% for tool in theme_options.tools %}
 
-        <div class="tool-item" title="{{ tool.name }}">
+            <div class="tool-item" title="{{ tool.name }}">
               {% if tool.logo %}
                 <img
                 src="{{ tool.logo.url }}" alt="{{ tool.name }}" class="tool-logo">

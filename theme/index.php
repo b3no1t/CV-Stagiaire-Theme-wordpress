@@ -43,10 +43,10 @@ $projects = Timber::get_posts([
 $context['projects'] = $projects;
 
 // La date en cours
-$timestamp = time();
-$datetime_object = current_datetime();
-$formatted_date = $datetime_object->format('Ymd');
-$formatted_date = wp_date('Ymd');
+// $timestamp = time();
+// $datetime_object = current_datetime();
+// $formatted_date = $datetime_object->format('Ymd');
+// $formatted_date = wp_date('Ymd');
 
 
 

@@ -16,15 +16,19 @@
         <span>
           /
         </span>
+
         <time class="font-medium text-gray-700 text-xs/none" datetime="{{ item.end_date }}">
           {{ item.end_date }}
         </time>
+
         <h3 class="text-lg font-bold text-gray-900">
           {{ item.company_name }}
         </h3>
+
         <p class="mt-0.5 text-sm text-gray-700">
           {{ item.job_title }}
         </p>
+
       </div>
     </li>
   {% endfor %}

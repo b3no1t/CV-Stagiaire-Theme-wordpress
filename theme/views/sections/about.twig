@@ -17,7 +17,7 @@
         </div>
       {% endif %}
 
-      <div class="flex flex-col items-baseline gap-16 lg:flex-row">
+      <div class="flex flex-col items-baseline justify-start gap-16 lg:flex-row">
         {# Informations personnelles #}
         <div class="pt-8 personal-info o-6">
           <h3 class="info-title">
@@ -75,11 +75,11 @@
             {% endif %}
 
             {% if theme_options.social_networks %}
-              <div class="pt-2 mb-8 social-links o-6">
-                <div class="social-list">
+              <div class="pt-2 mb-8 social-links">
+                <div class="social-list o-2">
                   {% for social in theme_options.social_networks %}
-                    <a href="{{ social.url }}" class="flex gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
-                      <img src="{{ social.icon }}" class="w-8 aspect-square " alt="{{ social.platform }}" />
+                    <a href="{{ social.url }}" class="flex items-center gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
+                      <img src="{{ social.icon }}" class="w-6 aspect-square " alt="{{ social.platform }}" />
                       <span>
                         {{ social.platform }}
                       </span>
@@ -111,17 +111,11 @@
                   <ul class="flex flex-wrap gap-2">
                     {% for child in strength.competences %}
                       <li class="relative overflow-hidden px-2 py-1 text-[9px] rounded-lg   strength__item inline-flex gap-1 items-center
-
-
-                      {#
-                      todo
-                      {% if child.level >= 80 %} bg-primary-{{child.level * 10}} text-white #}
-                      {% if child.level >= 80 %} bg-primary-950 text-white
-                      {% elseif child.level >= 60 %}bg-primary-600 text-white
-                      {% elseif child.level >= 40 %}bg-primary-400 text-white
-                      {% else %}bg-primary-100 text-primary-900{% endif %}">
-
-
+                        {% if child.level >= 80 %} bg-primary-950 text-white
+                        {% elseif child.level >= 60 %}bg-primary-600 text-white
+                        {% elseif child.level >= 40 %}bg-primary-400 text-white
+                        {% else %}bg-primary-100 text-primary-900 {% endif %}
+                      ">
 
                         {% if child.icon %}
                           <i class="{{ child.icon }}"></i>

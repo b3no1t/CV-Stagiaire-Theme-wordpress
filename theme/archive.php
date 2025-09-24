@@ -3,6 +3,7 @@
  * @package WordPress
  * @subpackage Timberland
  * @since Timberland 2.2.0
+ * Page listant tous les posts présent dans le blog, peut etre filtré par category
  */
 
 $templates = array( 'archive.twig', 'index.twig' );

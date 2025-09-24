@@ -4,7 +4,7 @@
 /**
  * CONFIGURATION TAILWIND CSS 4.0 - CSS-FIRST APPROACH
  * Cette configuration remplace complètement le fichier tailwind.config.js
- * Toutes les personnalisations se font désormais directement en CSS
+ * ! Toutes les personnalisations se font désormais directement en CSS
  */
 
 /**
@@ -12,6 +12,7 @@
  * Remplace theme.extend du fichier JS traditionnel
  * Permet de définir couleurs, polices, espacements, etc.
  */
+ /* todo changer les couleurs du nuancier Primary */
 @theme {
   /**
    * 🌈 PALETTE DE COULEURS PERSONNALISÉES
@@ -68,7 +69,7 @@
   /**
    * 📏 SYSTÈME D'ESPACEMENT PERSONNALISÉ
    * Échelle d'espacement adaptée aux besoins WordPress
-   * Basé sur une progression harmonieuse pour layouts cohérents
+   * ! Basé sur une progression harmonieuse pour layouts cohérents
    */
   --spacing-18: 4.5rem;
   /* 72px - Entre lg et xl */
@@ -239,16 +240,6 @@
     font-size: theme(--font-size-base);
   }
 
-  /***
-  * Owl selector
-  */
-  .cv > * + * {
-    margin-top: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid gray;
-  }
-
-
   /**
    * Optimisations pour les éléments WordPress
    * Styles spécifiques aux templates et blocs
@@ -285,12 +276,12 @@
 /**
  * 🧩 COMPOSANTS PERSONNALISÉS
  * Styles de composants réutilisables pour WordPress
- * Alternative à addComponents() du système JS
+ * Alternative à addComponents() du système JS de la v3
  */
 @layer components {
 
   /**
-   * Boutons système avec variantes
+   * Boutons avec variantes
    * Composants cohérents pour toute l'interface
    */
   .btn {
@@ -362,7 +353,7 @@
 
   /**
    * Navigation WordPress
-   * Styles pour menus et navigation
+   * Styles pour menus et navigation, dont les class sont générées par wordpress
    */
   .nav-link {
     display: block;

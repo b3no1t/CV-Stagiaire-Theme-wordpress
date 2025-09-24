@@ -1,60 +1,77 @@
-{# CARD USE CASE #}
-<article class="w-full p-4  card rounded-lg  hover:scale-[1.02] transition-transform duration-200 ease-in-out bg-stone-100" role="region" aria-labelledby="card-title-{{ project.id }}">
+{# CARD USE CASE
+  @b3no1t used conditionnaly in category Projects
+  @b3no1t used in homepage
+  todo read condition states
+#}
 
-  <div class=" card-content">
+{% if category_name == projects %}
+  {# si dans la category Projects fais un lien autour de l'article #}
+  <a href="href=" {{ project.link }} " >
+{% endif %}
 
-    <div class="flex items-center gap-1 md:gap-4">
-      {# <img src="{{ project.thumbnail.src|resize(60) }}" alt="{{ project.thumbnail.alt }}"> #}
-      <h4 class="project-title" id="card-title-{{ project.id }}">
-        {{ project.title }}
-        <span class="block text-sm font-normal tracking-normal text-gray-500">
-          {{ project.project_type }}
-        </span>
-      </h4>
-    </div>
-
-    <div class="mt-2 text-sm line-clamp-3" aria-label="Description du projet">
-      {{ project.description }}
-    </div>
-
-    <div class="flex flex-col items-baseline gap-1 mt-2 font-mono text-sm text-gray-500 project-details" aria-label="Détails du projet">
-      {# ! Métadonnées du projet #}
-      {# Durée du projet #}
-        {% if project.duration %}
-          <div class="project-duration"> <i class="fas fa-clock"></i>
-          {{ project.duration }}
+  <article class=" w-full p-4 card rounded-lg hover:scale-[1.02] transition-transform duration-200 ease-in-out bg-stone-100" role=" region" aria-labelledby=" card-title-{{ project.id }} ">
+    <div class=" card-content">
+      <div class="flex items-center gap-1 md:gap-4">
+        {% if category_name == projects %}
+          {# on affiche l'image de presentation (le logo) seuelement si on es dans la category projects   #}
+          <img src="{{ project.thumbnail.src|resize(60) }}" alt="{{ project.thumbnail.alt }}">
+          {% endif %}
+          <h4 class="project-title" id="card-title-{{ project.id }}">
+            {{ project.title }}
+            <span class="block text-sm font-normal tracking-normal text-gray-500">
+              {{ project.project_type }}
+            </span>
+          </h4>
+          {% if category_name == projects %}
+            <time class="ml-auto text-2xl" datetime="{{ project.project_date }}">
+              {{ project.project_date|date('Y') }}
+            </time>
+          {% endif %}
         </div>
-      {% endif %}
-
-      <div class="project-tech" aria-label="Technologies utilisées">
-        <i class="fas fa-code"></i>
-        {% for item in project.technologie %}
-          <span class="inline-block px-2 py-1 text-xs font-medium text-gray-800 rounded-full bg-gray-50 tech-badge">
-            {{ item.name }}
-          </span>
-        {% endfor %}
-      </div>
-      {# ! Métadonnées du projet #}
-      <div class="project-meta" aria-label="Informations sur l'équipe">
-        {% if project.team_size %}
-          <i class="fas fa-users"></i>
-          <span class="project-team">
-            {% if project.team_size == 1 %}
-              Projet solo
-            {% else %}
-              Équipe de
-              {{ project.team_size }}
+        {% if not category_name == projects %}
+          <div class="mt-2 text-sm line-clamp-3" aria-label="Description du projet">
+            {{ project.description }}
+          </div>
+          <div class="flex flex-col items-baseline gap-1 mt-2 font-mono text-sm text-gray-500 project-details" aria-label="Détails du projet">
+            {# ! Métadonnées du projet #}
+            {# Durée du projet #}
+              {% if project.duration %}
+                <div class="project-duration"> <i class="fas fa-clock"></i>
+                {{ project.duration }}
+              </div>
             {% endif %}
-          </span>
+            <div class="project-tech" aria-label="Technologies utilisées">
+              <i class="fas fa-code"></i>
+              {% for item in project.technologie %}
+                <span class="inline-block px-2 py-1 text-xs font-medium text-gray-800 rounded-full bg-gray-50 tech-badge">
+                  {{ item.name }}
+                </span>
+              {% endfor %}
+            </div>
+            {# ! Métadonnées du projet #}
+            <div class="project-meta" aria-label="Informations sur léquipe">
+              {% if project.team_size %}
+                <i class="fas fa-users"></i>
+                <span class="project-team">
+                  {% if project.team_size == 1 %}
+                    Projet solo
+                  {% else %}
+                    Équipe de
+                    {{ project.team_size }}
+                  {% endif %}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a href="{{ project.link }}" class=" btn btn-primary" aria-label="Plus d'informations sur {{ project.title }}">
+              plus d'info
+            </a>
+          </div>
         {% endif %}
       </div>
-    </div>
-
-    <div class="mt-4">
-      <a href="{{ project.link }}" class=" btn btn-primary" aria-label="Plus d'informations sur {{ project.title }}">
-        plus d'info
-      </a>
-    </div>
-  </div>
-
-</article>
+    </article>
+    {% if category_name == projects %}
+    </a>
+  {% endif %}

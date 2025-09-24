@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+{# Category Projects #}
+{% block content %}
+  <div class="wp-container mt-18">
+    <section>
+      <h2>
+        PROJECTS
+      </h2>
+      {# looping over projects category #}
+      <div class="grid w-3/5 grid-cols-1 gap-2 mx-auto">
+        {% for project in posts %}
+          {% include "./partial/card.twig" with {'project': project} %}
+        {% endfor %}
+      </section>
+    </div>
+{% endblock %}

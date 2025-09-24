@@ -1,0 +1,14 @@
+/*
+* Toggle light / dark mode
+* imported in main.css
+*/
+
+/* TODO
+*  centraliser les valeurs du mode Dark (dark:...)
+*  a fin d'uniformiser le mode dark
+*  -----------------------------------------------
+*  1 - definir en amont les couleurs dite "dark" et leurs selecteurs
+*  2 - en aval, les agréger les class et les styler avec la variante dark
+*  doc: https://tailwindcss.com/docs/adding-custom-styles
+*/
+
