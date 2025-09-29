@@ -12,25 +12,27 @@
  * Remplace theme.extend du fichier JS traditionnel
  * Permet de définir couleurs, polices, espacements, etc.
  */
- /* todo changer les couleurs du nuancier Primary */
+ /* todo changer les couleurs du nuancier Primary
+ use a generator tw ss nuancoier par ex: https://uicolors.app/generate */
 @theme {
   /**
    * 🌈 PALETTE DE COULEURS PERSONNALISÉES
    * Définition des couleurs du système de design Timberland
    * Utilisation de la syntaxe moderne CSS avec variables intégrées
    */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  /* Couleur principale */
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-primary-950: #172554;
+--color-primary-50: #eeffef;
+--color-primary-100: #d8ffdd;
+--color-primary-200: #b3ffbc;
+--color-primary-300: #78fd89;
+--color-primary-400: #36f24f;
+--color-primary-500: #0ded2b;
+--color-primary-600: #03b61b;
+--color-primary-700: #078e19;
+--color-primary-800: #0b7019;
+--color-primary-900: #0c5b19;
+--color-primary-950: #003409;
+
+
 
   /* Couleurs sémantiques pour WordPress */
   --color-success-400: #4ade80;

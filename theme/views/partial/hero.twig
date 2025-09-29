@@ -4,8 +4,13 @@
 
 <section class="bg-no-repeat w-full  bg-cover hero-section h-[100dvh] flex flex-row justify-center place-items-center" >
 
-<div class="absolute w-full h-full backdrop bg-black/5"></div>
-
+<div
+      class="absolute w-full h-full backdrop bg-black/15"
+      {# add bgi toi hero via option page #}
+      style="background-image: url(
+      {{ get_image(theme_options.background_hero).src }}
+      )"
+></div>
   <div class="z-10">
     <img src="{{ site.icon }}" alt="..." class="site__icon" />
     {# Sous-titre et titre principal #}

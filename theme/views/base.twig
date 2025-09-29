@@ -35,7 +35,7 @@
     {{ function('wp_head') }}
   </head>
     <body class="{{ body_class }} dark:bg-black/80" data-template="base.twig">
-
+{# todo dark/light moder #}
       <header class=" site__header wp-container">
         {% block header %}
           {% include './partial/header.twig' %}
@@ -56,6 +56,5 @@
       </footer>
     </body>
   </head>
-  {# todo dans l'admin veuillez référencer au moins trois projets  #}
-  {# todo dans l'admin veuillez compléter les sous menu (option) de l'onglet `Mon CV`  #}
+
 </html>

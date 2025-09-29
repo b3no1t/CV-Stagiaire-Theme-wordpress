@@ -6,10 +6,12 @@
 
 {% if category_name == projects %}
   {# si dans la category Projects fais un lien autour de l'article #}
-  <a href="href=" {{ project.link }} " >
+  <a href=" {{ project.link }} " >
 {% endif %}
 
-  <article class=" w-full p-4 card rounded-lg hover:scale-[1.02] transition-transform duration-200 ease-in-out bg-stone-100" role=" region" aria-labelledby=" card-title-{{ project.id }} ">
+  <article class=" w-full p-4 card rounded-lg hover:scale-[1.02] transition-transform duration-200 ease-in-out bg-stone-100 dark:bg-black" role=" region" aria-labelledby=" card-title-{{ project.id }} ">
+
+
     <div class=" card-content">
       <div class="flex items-center gap-1 md:gap-4">
         {% if category_name == projects %}
@@ -40,6 +42,7 @@
                 {{ project.duration }}
               </div>
             {% endif %}
+            {# todo #}
             <div class="project-tech" aria-label="Technologies utilisées">
               <i class="fas fa-code"></i>
               {% for item in project.technologie %}

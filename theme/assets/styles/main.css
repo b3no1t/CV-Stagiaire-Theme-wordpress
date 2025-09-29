@@ -19,7 +19,6 @@
  * Nouvelle syntaxe d'import pour Tailwind 4
  * Plus besoin de @import 'tailwindcss/base' etc.
  */
-@import "tailwindcss";
 
 /**
  * 📁 IMPORT DE LA CONFIGURATION THÈME

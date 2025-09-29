@@ -8,9 +8,9 @@ Apprendre l'**extraction de classes** Tailwindcss4.
 
 ## Objectif
 
-- premier objectif : prendre connaisances du projet
-- second objectif : faire la  homepage responsive et en dark/light mode
-- troisième objectif : importer une webfont
+<!-- - premier objectif : prendre connaisances du projet -->
+<!-- - second objectif : faire la  homepage responsive et en dark/light mode -->
+<!-- - troisième objectif : importer une webfont -->
 - quatrième objectif : faire le single post projet
 - cinquième objectif : utiliser Glide JS pour le slider
 - sixième objectif : apprendre à utiliser les images webp avec Timber/Twig
@@ -35,7 +35,7 @@ Apprendre l'**extraction de classes** Tailwindcss4.
 
 ### importer une webfont
 
-- exemple avec SFProDisplay
+- exemple avec SFProDisplay ou autre par exemple google font
 - https://www.cdnfonts.com/sf-pro-display.font
 - importer la webfont dans la css
 

@@ -1,5 +1,20 @@
 /* vars in theme/assets/styles/theme.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: SFProDisplay-Regular;
+    font-weight: 400;
+    src: url(../../fonts/sfpro/SFProDisplay-Regular.woff) format("woff");
+  }
+  @font-face {
+    font-family: SFProDisplay-Black;
+    font-weight: 800;
+    src: url(../../fonts/sfpro/SFProDisplay-Black.woff) format("woff");
+  }
+}
 /**
  * Variables CSS personnalisées pour une gestion centralisée
  * Facilite la maintenance et permet des modifications globales rapides
