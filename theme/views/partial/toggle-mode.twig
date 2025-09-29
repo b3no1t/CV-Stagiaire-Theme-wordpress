@@ -7,31 +7,55 @@
 {# End Of Toggler #}
 <script>
     // Ce flag booléen suit l'état actuel (vrai = mode clair, faux = mode sombre)
-    let flag = true;
-    const toggler = document.querySelector('.toggler');
+    let darkMode = false;
 
-    /**
+    // default to system setting
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      darkMode = true;
+    }
+
+
+      // preference from localStorage should overwrite
+      if (localStorage.getItem('theme') === 'dark') {
+        darkMode = true;
+      } else if (localStorage.getItem('theme') === 'light') {
+        darkMode = false;
+      }
+
+      if (darkMode) {
+        document.body.classList.toggle('dark');
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.toggler').addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+          localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+      });
+
+});
+/**
+const toggler = document.querySelector('.toggler');
+
     * Fonction d'activation/désactivation du mode sombre
     * Cette fonction configure un écouteur d'événements pour l'élément d'activation/désactivation
     * et gère la logique de basculement entre les modes sombre et clair.
-    */
     const toggleDark = () => {
-      toggler.addEventListener('click', () => {
-        // on cible balise HTML
-        const html = document.documentElement;
 
-        toggler.children[0].classList.toggle('translate-x-10');
+    toggler.addEventListener('click', () => {
+      // on cible balise HTML
+      const html = document.documentElement;
 
-        if (flag) {
-          html.classList.add('dark');
+      toggler.children[0].classList.toggle('translate-x-10');
+
+      if (flag) {
+        html.classList.add('dark');
         } else {
           html.classList.remove('dark');
-        }
-        // Inverser l'indicateur pour le prochain clic
-        flag = !flag;
+          }
+          // Inverser l'indicateur pour le prochain clic
+          flag = !flag;
 
-        {#  TODO  function to keep persistency localStorage mode #}
-      });
-    };
-    toggleDark();
+          });
+          };
+          toggleDark();
+          */
   </script>

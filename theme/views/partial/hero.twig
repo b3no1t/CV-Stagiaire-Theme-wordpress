@@ -6,7 +6,9 @@
 
 <div
       class="absolute w-full h-full backdrop bg-black/15"
-      {# add bgi to hero via option page image field 'background_hero' #}
+      {# add bgi to hero via option page image field 'background_hero'
+      https://timber.github.io/docs/v2/guides/cookbook-images/#main-content
+      #}
       style="background-image: url(
       {{ get_image(theme_options.background_hero).src }}
       )"
