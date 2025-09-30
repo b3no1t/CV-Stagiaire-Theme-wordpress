@@ -12,3 +12,6 @@
 *  doc: https://tailwindcss.com/docs/adding-custom-styles
 */
 
+/* .myClass{
+  @apply mt-4
+} */

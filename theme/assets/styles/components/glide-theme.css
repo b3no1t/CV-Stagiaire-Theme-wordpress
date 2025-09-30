@@ -1,0 +1,36 @@
+/*
+ theme du Slider
+ /partial/slider-project.twig
+*/
+@layer components {
+
+  [data-glide-el="controls"] {
+    @apply absolute z-10 flex items-center justify-between w-full top-1/2;
+  }
+
+  .glide {
+    /* containeur de gliderJS */
+    @apply: relative;
+  }
+
+  .glide__arrow {
+    @apply w-32 hover:fill-secondary-700
+  }
+
+  .glide__arrow--left,
+  .glide__arrow--right {
+
+    @apply bg-white rounded-full
+  }
+
+  .glide__bullets {
+    @apply w-full mt-8
+  }
+  .glide__bullet {
+    @apply bg-primary-400 w-8 h-8 rounded-full
+  }
+  .glide__bullet--active{
+    @apply bg-secondary-400 z-20
+  }
+
+}
