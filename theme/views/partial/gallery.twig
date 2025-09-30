@@ -1,0 +1,22 @@
+{# gallery qui se trouve dans la page single-project.twig #}
+<div class="flex container__gallery ">
+  {% for image in post.meta('screenshot') %}
+    <a href="{{ image }}" class="overflow-hidden js-smartPhoto aspect-square" data-caption="{{ post.title }}" data-id="photo-{{loop.index}}" />
+    {#
+     bgi sur un div a la place du picture
+     resizer l'image en square
+    #}
+    <picture>
+      <source srcset="{{ image|towebp }}" width="{{ image.width }}" type="image/webp" />
+      <source srcset="{{ image|tojpg }}" width="{{ image.width }}" type="image/jpeg" />
+      <img src="{{ image|tojpg }}" width="{{ image.width }}" alt="{{ post.title }}" />
+    </picture>
+  </a>
+{% endfor %}</div><script>
+
+
+window.addEventListener('DOMContentLoaded',function(){
+    new SmartPhoto(".js-smartPhoto");
+});
+
+</script>
