@@ -2,33 +2,26 @@
 <h2 class="leading-none">
   Parcours Professionnel
 </h2>
-<ol class="relative space-y-8 before:absolute before:-ml-px before:h-full before:w-0.5 before:rounded-full before:bg-gray-200">
-
+<ol class="relative space-y-8 before:absolute before:-ml-px before:h-full before:w-0.5 before:rounded-full before:bg-secondary-200">
   {% for item in theme_options.experiences %}
     <li class="relative -ms-1.5 flex items-start gap-4">
-      <span class="bg-blue-600 rounded-full size-3 shrink-0"></span>
+      <span class="bg-blue-600 rounded-full dark:bg-secondary-300 size-3 shrink-0"></span>
       <div class="-mt-2">
-
-        <time class="font-medium text-gray-700 text-xs/none" datetime="{{ item.start_date }}">
+        <time class="font-medium text-secondary-700 dark:text-primary-200 text-xs/none" datetime="{{ item.start_date }}">
           {{ item.start_date }}
         </time>
-
         <span>
           /
         </span>
-
-        <time class="font-medium text-gray-700 text-xs/none" datetime="{{ item.end_date }}">
+        <time class="font-medium text-secondary-700 text-xs/none dark:text-primary-200" datetime="{{ item.end_date }}">
           {{ item.end_date }}
         </time>
-
-        <h3 class="text-lg font-bold text-gray-900">
+        <h3 class="text-lg font-bold text-secondary-900 dark:text-primary-200">
           {{ item.company_name }}
         </h3>
-
-        <p class="mt-0.5 text-sm text-gray-700">
+        <p class="mt-0.5 text-sm text-secondary-700 dark:text-primary-200">
           {{ item.job_title }}
         </p>
-
       </div>
     </li>
   {% endfor %}

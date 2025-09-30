@@ -323,14 +323,14 @@
   }
 
   .btn-secondary {
-    background-color: theme(--color-gray-100);
-    color: theme(--color-gray-900);
-    border-color: theme(--color-gray-300);
+    background-color: theme(--color-secondary-100);
+    color: theme(--color-secondary-900);
+    border-color: theme(--color-secondary-300);
   }
 
   .btn-secondary:hover {
-    background-color: theme(--color-gray-200);
-    border-color: theme(--color-gray-400);
+    background-color: theme(--color-secondary-200);
+    border-color: theme(--color-secondary-400);
   }
 
   /**
@@ -461,6 +461,11 @@
     &:focus:not(:focus-visible) {
       outline: none;
     }
+
+
+}
+ .info-label,.info-value{
+    @apply dark:text-primary-50;
   }
 }
 

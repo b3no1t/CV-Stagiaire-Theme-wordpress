@@ -68,7 +68,7 @@
     <aside class="my-16 lg:my-0">
       <section class="gallery">
         {# Slider d'images avec Glide.js #}
-        <section class="flex flex-row flex-wrap m-8">
+        <section class="flex flex-row flex-wrap">
 
           <input id="tab-one" type="radio" name="tabs" class="absolute opacity-0 peer/tab-one" checked />
           <label for="tab-one" class="block p-4 cursor-default hover:bg-slate-200 peer-checked/tab-one:bg-secondary-200">
@@ -79,7 +79,6 @@
           <label for="tab-two" class="block p-4 cursor-default hover:bg-slate-200 peer-checked/tab-two:bg-secondary-200">
             gallery
           </label>
-          <hr>
           <div class="hidden w-full p-4 bg-secondary-200 peer-checked/tab-one:block">
             {% include "./partial/slider-project.twig" %}
           </div>

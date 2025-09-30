@@ -54,7 +54,7 @@
                   Email:
                 </span>
                 <span class="info-value">
-                  <a href="mailto:{{ theme_options.email }}">
+                  <a href="mailto:{{ theme_options.email }}" class="dark:text-primary-50">
                     {{ theme_options.email }}
                   </a>
                 </span>
@@ -67,7 +67,7 @@
                   Téléphone:
                 </span>
                 <span class="info-value">
-                  <a href="tel:+{{ theme_options.phone|raw }}" type="tel">
+                  <a href="tel:+{{ theme_options.phone|raw }}" type="tel" class="dark:text-primary-50">
                     {{ theme_options.phone }}
                   </a>
                 </span>
@@ -78,7 +78,7 @@
               <div class="pt-2 mb-8 social-links">
                 <div class="social-list o-2">
                   {% for social in theme_options.social_networks %}
-                    <a href="{{ social.url }}" class="flex items-center gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
+                    <a href="{{ social.url }}" class="dark:text-primary-50 flex items-center gap-2 flex-row social-link social-{{ social.platform | lower }}" target="_blank" rel="noopener noreferrer" title="{{ social.platform }}">
                       <img src="{{ social.icon }}" class="w-6 aspect-square " alt="{{ social.platform }}" />
                       <span>
                         {{ social.platform }}
@@ -111,10 +111,10 @@
                   <ul class="flex flex-wrap gap-2">
                     {% for child in strength.competences %}
                       <li class="relative overflow-hidden px-2 py-1 text-[9px] rounded-lg   strength__item inline-flex gap-1 items-center
-                        {% if child.level >= 80 %} bg-primary-950 text-white
-                        {% elseif child.level >= 60 %}bg-primary-600 text-white
-                        {% elseif child.level >= 40 %}bg-primary-400 text-white
-                        {% else %}bg-primary-100 text-primary-900 {% endif %}
+                        {% if child.level >= 80 %} bg-secondary-950 text-white
+                        {% elseif child.level >= 60 %}bg-secondary-600 text-white
+                        {% elseif child.level >= 40 %}bg-secondary-400 text-white
+                        {% else %}bg-secondary-100 text-secondary-900 {% endif %}
                       ">
 
                         {% if child.icon %}
