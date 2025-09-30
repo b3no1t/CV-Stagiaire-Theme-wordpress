@@ -53,11 +53,11 @@ class Timberland extends Timber\Site
         add_action('acf/init', array($this, 'acf_register_blocks'));
         // Charge les assets dans l'éditeur de blocs
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_assets'));
+        // load script to post type project
+        // add_action('wp_head', 'add_preload_links_post_type_project', 1);
         // Appelle le constructeur parent
         parent::__construct();
     }
-
-
 
     public function add_to_context($context)
     {
@@ -65,6 +65,7 @@ class Timberland extends Timber\Site
         $context['menu']    = Timber::get_menu();
         $context['primary_menu'] = Timber::get_menu('primary_menu');
         $context['footer']  = Timber::get_menu('footer');
+
 
         // Require block functions files
         foreach (glob(__DIR__ . '/blocks/*/functions.php') as $file) {
@@ -221,29 +222,10 @@ class Timberland extends Timber\Site
             register_block_type($block);
         }
     }
+
 }
 
 new Timberland();
-
-/**
- * Utilise le filtre timmy/sizes pour personnaliser les tailles d'images
- * Crée une taille d'image personnalisée appelée 'medium-custom'
- * Redimensionne les images à 650 pixels de large
- * Génère un srcset pour les écrans haute résolution
- * Définit un comportement responsive basé sur la largeur de l'écran
- * Limite l'utilisation de cette taille aux pages d'options
-*/
-add_filter( 'timmy/sizes', function( $sizes ) {
-    return array(
-        'medium-custom' => array(
-            'resize' => array( 650 ),
-            'srcset' => array( 2 ),
-            'sizes' => '(min-width: 992px) 33.333vw, 100vw',
-            'name' => 'Width 1/4 fix',
-            'post_types' => array( 'option', 'option' ),
-        ),
-    );
-} );
 
 function acf_block_render_callback($block, $content)
 {
@@ -363,6 +345,8 @@ function add_responsive_images_support() {
     add_image_size('hero-bg', 1920, 1080, true);
     add_image_size('profile-photo', 300, 300, true);
 }
+
+
 add_action('after_setup_theme', 'add_responsive_images_support');
 
 // Remove ACF block wrapper div

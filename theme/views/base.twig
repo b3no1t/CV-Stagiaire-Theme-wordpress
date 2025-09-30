@@ -22,7 +22,6 @@
     <meta name="theme-color" content="#f1f1f1">
     <meta name="referrer" content="origin">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sf-font@1.0.0/stylesheet.min.css">
 
     <title>
           {{ site.name }} | {{ site.description }}
@@ -33,9 +32,11 @@
     </style> #}
     {# Styles et Scripts de WP #}
     {{ function('wp_head') }}
+    {% block head %}
+    {% endblock %}
+
   </head>
     <body class="{{ body_class }} dark:bg-black/80" data-template="base.twig">
-{# todo dark/light moder #}
       <header class=" site__header wp-container">
         {% block header %}
           {% include './partial/header.twig' %}
@@ -55,6 +56,5 @@
         {% endblock %}
       </footer>
     </body>
-  </head>
 
 </html>

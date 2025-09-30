@@ -2,7 +2,8 @@
   <div class="glide__track" data-glide-el="track">
 
     <ul class="glide__slides">
-      {% for image in post.meta('screenshot') %}
+      {% set featured = Image(post.meta('screenshot')) %}
+      {% for image in featured %}
         <li class="glide__slide">
           <picture>
             <source srcset="{{ image|towebp }}" width="{{ image.width }}" type="image/webp" />
